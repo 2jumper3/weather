@@ -12,6 +12,7 @@
 		CE167D0D21F5EF25004B52C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE167D0C21F5EF25004B52C2 /* Assets.xcassets */; };
 		CE167D1021F5EF25004B52C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE167D0E21F5EF25004B52C2 /* LaunchScreen.storyboard */; };
 		CE167D1921F5EF4F004B52C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167D1821F5EF4F004B52C2 /* LoginViewController.swift */; };
+		CEE069CD21FF03F100C3D42F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE069CC21FF03F100C3D42F /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		CE167D0F21F5EF25004B52C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE167D1121F5EF25004B52C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE167D1821F5EF4F004B52C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CEE069CC21FF03F100C3D42F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		CEE069F5220052AA00C3D42F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				CE167D1821F5EF4F004B52C2 /* LoginViewController.swift */,
+				CEE069CC21FF03F100C3D42F /* SecondViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -143,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE069CD21FF03F100C3D42F /* SecondViewController.swift in Sources */,
 				CE167D1921F5EF4F004B52C2 /* LoginViewController.swift in Sources */,
 				CE167D0621F5EF24004B52C2 /* AppDelegate.swift in Sources */,
 			);
@@ -155,6 +160,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE167D0A21F5EF24004B52C2 /* Base */,
+				CEE069F5220052AA00C3D42F /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

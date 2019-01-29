@@ -43,8 +43,6 @@ class LoginViewController: UIViewController {
     */
     
     @IBAction func loginButtonAction ()  {
-        print ("weather is good")
-        
         guard let loginText  = self.loginTextBox?.text else {
             print ("no login")
             return
@@ -54,11 +52,23 @@ class LoginViewController: UIViewController {
             return
         }
         if self.demoLogin == loginText && self.demoPass == passwordText {
-            print ("success")
-            
+//            self.successAlert() почему если я оставляю эту строчку, то переход уже не работает?
+            self.performSegue(withIdentifier: "openApp", sender: nil)
         } else {
-            print ( "login or password wrong")
+            self.errorAlert()
         }
+    }
+    func successAlert () {
+    let alertController = UIAlertController(title: "Login", message: "Success", preferredStyle: .alert)
+    let alertOk = UIAlertAction(title: "Succes", style: .cancel) { (action: UIAlertAction) in }
+    alertController.addAction(alertOk)
+    self.present(alertController, animated: true, completion: nil)
+    }
+    func errorAlert () {
+        let alertController = UIAlertController(title: "Login", message: "Wrong Login or Password", preferredStyle: .alert)
+        let alertOk = UIAlertAction(title: "Done", style: .cancel) { (action: UIAlertAction) in }
+        alertController.addAction(alertOk)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @IBAction func closeKeyboard () {
@@ -83,6 +93,7 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.navigationController?.navigationBar.backgroundColor = UIColor.green
         
 
     }
@@ -90,5 +101,8 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @IBAction func backToLogin (unwindSegue: UIStoryboardSegue) {
+        
     }
 }
