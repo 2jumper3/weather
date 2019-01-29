@@ -1,0 +1,45 @@
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "1iu-f1-LmO"; */
+"1iu-f1-LmO.normalTitle" = "Log In";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "75e-k3-zsi"; */
+"75e-k3-zsi.title" = "Title";
+
+/* Class = "UILabel"; text = "Login:"; ObjectID = "9HV-PY-WiW"; */
+"9HV-PY-WiW.text" = "Login:";
+
+/* Class = "UITabBarItem"; title = "First"; ObjectID = "A2c-QJ-Rpw"; */
+"A2c-QJ-Rpw.title" = "First";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "Bp8-J7-XL3"; */
+"Bp8-J7-XL3.title" = "Item";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "EsA-u8-bFl"; */
+"EsA-u8-bFl.title" = "Item";
+
+/* Class = "UINavigationItem"; title = "Add New City"; ObjectID = "KQf-EX-RbR"; */
+"KQf-EX-RbR.title" = "Add New City";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "L59-aa-iVZ"; */
+"L59-aa-iVZ.normalTitle" = "Back";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "RWg-ki-CUH"; */
+"RWg-ki-CUH.title" = "Item";
+
+/* Class = "UITextField"; placeholder = "type email:"; ObjectID = "U5G-x7-Ium"; */
+"U5G-x7-Ium.placeholder" = "type email:";
+
+/* Class = "UITextField"; placeholder = "type your pass:"; ObjectID = "c7g-fL-01M"; */
+"c7g-fL-01M.placeholder" = "type your pass:";
+
+/* Class = "UIButton"; normalTitle = "test"; ObjectID = "giM-wI-gD8"; */
+"giM-wI-gD8.normalTitle" = "test";
+
+/* Class = "UITabBarItem"; title = "Second"; ObjectID = "pwo-HK-6Kw"; */
+"pwo-HK-6Kw.title" = "Second";
+
+/* Class = "UILabel"; text = "WeatherApp"; ObjectID = "qbX-t8-5rr"; */
+"qbX-t8-5rr.text" = "WeatherApp";
+
+/* Class = "UILabel"; text = "password:"; ObjectID = "rxi-U8-7QW"; */
+"rxi-U8-7QW.text" = "password:";
