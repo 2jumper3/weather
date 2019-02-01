@@ -22,26 +22,16 @@ class LoginViewController: UIViewController {
     
     @IBOutlet private weak var loginButton:UIButton?
 
-    private let demoLogin = "123"
-    private let demoPass = "456"
+    private let demoLogin = ""
+    private let demoPass = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.passwordTextBox?.isSecureTextEntry = true
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+    // Actions
     @IBAction func loginButtonAction ()  {
         guard let loginText  = self.loginTextBox?.text else {
             print ("no login")
@@ -52,12 +42,19 @@ class LoginViewController: UIViewController {
             return
         }
         if self.demoLogin == loginText && self.demoPass == passwordText {
-//            self.successAlert() почему если я оставляю эту строчку, то переход уже не работает?
             self.performSegue(withIdentifier: "openApp", sender: nil)
         } else {
             self.errorAlert()
         }
     }
+    @IBAction func logOut (segue: UIStoryboardSegue?) {
+        
+    }
+    
+    @IBAction func closeKeyboard () {
+        self.view.endEditing(true)
+    }
+    
     func successAlert () {
     let alertController = UIAlertController(title: "Login", message: "Success", preferredStyle: .alert)
     let alertOk = UIAlertAction(title: "Succes", style: .cancel) { (action: UIAlertAction) in }
@@ -71,9 +68,7 @@ class LoginViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func closeKeyboard () {
-        self.view.endEditing(true)
-    }
+   
     @objc func keyboardWasShown (notification: Notification) {
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -101,8 +96,5 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    @IBAction func backToLogin (unwindSegue: UIStoryboardSegue) {
-        
     }
 }
