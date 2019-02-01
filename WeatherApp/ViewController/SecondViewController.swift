@@ -21,12 +21,12 @@ class SecondViewController: UIViewController {
         self.navigationController?.navigationBar.backgroundColor = UIColor.red
     }
     
-    @IBAction func testButton () {
-        let alertController = UIAlertController(title: "Login", message: "Success", preferredStyle: .alert)
-        let alertOk = UIAlertAction(title: "Succes", style: .cancel) { (action: UIAlertAction) in }
-        alertController.addAction(alertOk)
-        self.present(alertController, animated: true, completion: nil)
-    }
+//    @IBAction func testButton () {
+//        let alertController = UIAlertController(title: "Login", message: "Success", preferredStyle: .alert)
+//        let alertOk = UIAlertAction(title: "Succes", style: .cancel) { (action: UIAlertAction) in }
+//        alertController.addAction(alertOk)
+//        self.present(alertController, animated: true, completion: nil)
+//    }
     
 //@IBAction func 
     /*
