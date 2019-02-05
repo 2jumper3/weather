@@ -11,6 +11,7 @@ import UIKit
 class AllGroupsTableViewController: UITableViewController {
 
 var groups = ["ok","ne ok", "better", "ne better"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -42,7 +43,7 @@ var groups = ["ok","ne ok", "better", "ne better"]
 
         return cell
     }
-
+   
 
     /*
     // Override to support conditional editing of the table view.
@@ -89,4 +90,9 @@ var groups = ["ok","ne ok", "better", "ne better"]
     }
     */
 
+}
+extension   AllGroupsTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class NewsTableViewCell: UITableViewCell {
+     @IBOutlet weak var like: UIView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
