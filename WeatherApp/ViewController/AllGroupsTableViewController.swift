@@ -10,7 +10,8 @@ import UIKit
 
 class AllGroupsTableViewController: UITableViewController {
 
-var groups = ["ok","ne ok", "better", "ne better"]
+var groups = ["Group1","Group2", "Group3", "Group4"]
+    var imagesArray: Any = [UIImage(named: "1"), UIImage(named: "2")]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +38,10 @@ var groups = ["ok","ne ok", "better", "ne better"]
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupsTableViewCell", for: indexPath) as! AllGroupsTableViewCell
             let group = groups[indexPath.row]
+//            let photo = imagesArray[indexPath.section]
             cell.groupName?.text = group
+//            cell.images?.image = photo
+
 
         // Configure the cell...
 

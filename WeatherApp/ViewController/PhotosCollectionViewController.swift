@@ -44,17 +44,18 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 10
+        return 6
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCollectionViewCell", for: indexPath) as! PhotosCollectionViewCell
-        cell.photo?.image = UIImage(named: "474968_teletubbies-wallpapers-for-desktop-imgtagram_970x545_h")
+        cell.photo?.image = UIImage(named: "image")
     
         // Configure the cell
     
         return cell
     }
+    
 
     // MARK: UICollectionViewDelegate
 

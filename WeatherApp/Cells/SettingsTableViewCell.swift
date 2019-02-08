@@ -1,18 +1,15 @@
 //
-//  AllGroupsTableViewCell.swift
+//  NewsTableViewCell.swift
 //  WeatherApp
 //
-//  Created by Sergey on 01/02/2019.
+//  Created by Sergey on 05/02/2019.
 //  Copyright © 2019 Sergey. All rights reserved.
 //
 
 import UIKit
 
-class AllGroupsTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var groupName: UILabel?
-    @IBOutlet weak var images: UIImage?
-
+class SettingsTableViewCell: UITableViewCell {
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

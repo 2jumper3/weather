@@ -14,13 +14,14 @@ class MyGroupsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //assignbackground()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+   
 
     // MARK: - Table view data source
 
@@ -37,6 +38,8 @@ class MyGroupsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyGroupsTableViewCell", for: indexPath) as! MyGroupsTableViewCell
         let group = groups[indexPath.row]
+        
+
         cell.groupName?.text = group
         
         // Configure the cell...
@@ -99,5 +102,17 @@ class MyGroupsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func assignbackground(){
+        let background = UIImage(named: "wallaper")
+        
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        view.addSubview(imageView)
+        self.view.sendSubviewToBack(imageView)
+    }
 
 }
