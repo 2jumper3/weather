@@ -11,15 +11,13 @@ import UIKit
 
 
 @IBDesignable class avatar: UIControl {
-
- 
-    @IBAction func likeButtonChanged() {
-        print("likeButtonChanged")
+    
+    
+    @objc func tapAction () {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        self.addGestureRecognizer(tap)
     }
     
-//    func addTarget(_ target: Any?,
-//                   action: Selector,
-//                   for controlEvents: UIControl.Event)
     
 
     private weak var avaView: UIImageView?

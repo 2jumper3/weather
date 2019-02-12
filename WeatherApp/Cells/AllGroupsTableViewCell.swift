@@ -11,7 +11,12 @@ import UIKit
 class AllGroupsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var groupName: UILabel?
-    @IBOutlet weak var images: UIImage?
+    @IBOutlet weak var images: UIImageView?
+    
+    func setGroup(group: Group) {
+        self.groupName?.text = group.name
+    }
+
 
     override func awakeFromNib() {
         super.awakeFromNib()

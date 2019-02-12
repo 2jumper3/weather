@@ -11,6 +11,9 @@ import UIKit
 class MyFriendsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var friendName: UILabel?
+    func setFriend(friend: Friend) {
+        self.friendName?.text = friend.name
+    }
 
 
     override func awakeFromNib() {

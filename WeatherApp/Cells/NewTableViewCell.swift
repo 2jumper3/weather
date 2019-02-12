@@ -1,21 +1,20 @@
 //
-//  NewsTableViewCell.swift
+//  NewTableViewCell.swift
 //  WeatherApp
 //
-//  Created by Sergey on 07/02/2019.
+//  Created by Sergey on 12/02/2019.
 //  Copyright © 2019 Sergey. All rights reserved.
 //
 
 import UIKit
 
-class NewsTableViewCell: UITableViewCell {
+class NewTableViewCell: UITableViewCell {
     
     @IBOutlet weak var newsCell: UILabel?
-
+    @IBOutlet weak var newsImage: UIImageView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         // Initialization code
     }
 
@@ -25,5 +24,4 @@ class NewsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-
 }

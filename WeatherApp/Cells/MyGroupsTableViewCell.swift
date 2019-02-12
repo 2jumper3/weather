@@ -12,6 +12,10 @@ class MyGroupsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var groupName: UILabel?
     
+    func setGroup(group: Group) {
+        self.groupName?.text = group.name
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

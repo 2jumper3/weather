@@ -1,102 +1,108 @@
 //
-//  AllGroupsTableViewController.swift
+//  AddCityTableViewController.swift
 //  WeatherApp
 //
-//  Created by Sergey on 01/02/2019.
-//  Copyright © 2019 Sergey. All rights reserved.
+//  Created by Stanislav Ivanov on 29/01/2019.
+//  Copyright © 2019 Stanislav Ivanov. All rights reserved.
 //
 
 import UIKit
 
+// Набор методов, которые мы не знаем как реализовать на текущем UIViewController
+protocol AddGroupDeligate: class {
+    func addGroup(group: Group)
+}
+
+
 class AllGroupsTableViewController: UITableViewController {
-
-var groups = ["Group1","Group2", "Group3", "Group4"]
-    var imagesArray: Any = [UIImage(named: "1"), UIImage(named: "2")]
-
+    
+    //  Объект, который умеет добавлять города
+    weak var delegate: AddGroupDeligate?
+    
+    //  Массив городов
+    private var groups: [Group] = []
+    var groupsFilter: [Group] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //      Заполняем массив городов данными
+        let allGroups = ["Первая", "Вторая", "Третья", "Четвертая"]
+        for name in allGroups {
+            let group = Group()
+            group.name = name
+            
+            self.groups.append(group)
+        }
+        
+        self.filter(query: "")
     }
-
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
+    
+    //  Количество ячеек в таблице = количеству городов в массиве
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return groups.count
+        return self.groupsFilter.count
     }
-
-        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    //  Возвращаем ячейку для нужного города
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AllGroupsTableViewCell", for: indexPath) as! AllGroupsTableViewCell
-            let group = groups[indexPath.row]
-//            let photo = imagesArray[indexPath.section]
-            cell.groupName?.text = group
-//            cell.images?.image = photo
-
-
-        // Configure the cell...
-
+        
+        let group = self.groupsFilter[indexPath.row]
+        cell.setGroup(group: group)
+        
         return cell
     }
-   
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-extension   AllGroupsTableViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
+    //  Выбор ячейки
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //      Убираем выделение с ячейки
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        //      Получаем город
+        let group = self.groupsFilter[indexPath.row]
+        
+        //      Добавляем город
+        self.addGroup(group: group)
+    }
+}
+
+extension AllGroupsTableViewController {
+    
+    //  Так как на текущем экране мы не знаем как добавить город, просто поручаем это делегату
+    func addGroup(group: Group) {
+        self.delegate?.addGroup(group: group)
+    }
+    
+    func filter(query: String) {
+        self.groupsFilter.removeAll()
+        
+        for group in self.groups {
+            
+            guard let name = group.name else {
+                continue
+            }
+            
+            var isInFilter = true
+            
+            if query.count > 0 {
+                isInFilter = name.lowercased().contains(query.lowercased())
+            }
+            
+            if isInFilter {
+                self.groupsFilter.append(group)
+            }
+        }
+        
+        self.tableView.reloadData()
+    }
+}
+
+extension AllGroupsTableViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.filter(query: searchText)
     }
 }

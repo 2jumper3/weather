@@ -9,5 +9,8 @@
 import Foundation
 
 class Group {
-    var name: String = "name"
+    var name: String?
+}
+class Friend {
+    var name: String?
 }

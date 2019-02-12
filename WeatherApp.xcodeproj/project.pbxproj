@@ -13,8 +13,9 @@
 		CE167D1021F5EF25004B52C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE167D0E21F5EF25004B52C2 /* LaunchScreen.storyboard */; };
 		CE167D1921F5EF4F004B52C2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167D1821F5EF4F004B52C2 /* LoginViewController.swift */; };
 		CE3A29E1220C18EA00B2ECCF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A29E0220C18EA00B2ECCF /* SettingsViewController.swift */; };
-		CE3A29E5220C208A00B2ECCF /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A29E4220C208A00B2ECCF /* NewsTableViewCell.swift */; };
 		CE3A29E7220C288500B2ECCF /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3A29E6220C288500B2ECCF /* NewsTableViewController.swift */; };
+		CE5177532212D60100208B1B /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5177512212D60000208B1B /* NewTableViewCell.swift */; };
+		CE5177542212D60100208B1B /* NewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5177522212D60000208B1B /* NewTableViewCell.xib */; };
 		CE8207B3220831E00043FC44 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8207B2220831E00043FC44 /* MainView.swift */; };
 		CE8207B72209985D0043FC44 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8207B62209985D0043FC44 /* SettingsTableViewCell.swift */; };
 		CE8207BB220B08F70043FC44 /* wallaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8207BA220B08F70043FC44 /* wallaper.swift */; };
@@ -39,8 +40,9 @@
 		CE167D1121F5EF25004B52C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE167D1821F5EF4F004B52C2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CE3A29E0220C18EA00B2ECCF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		CE3A29E4220C208A00B2ECCF /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		CE3A29E6220C288500B2ECCF /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		CE5177512212D60000208B1B /* NewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewCell.swift; sourceTree = "<group>"; };
+		CE5177522212D60000208B1B /* NewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTableViewCell.xib; sourceTree = "<group>"; };
 		CE8207B2220831E00043FC44 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CE8207B62209985D0043FC44 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CE8207BA220B08F70043FC44 /* wallaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallaper.swift; sourceTree = "<group>"; };
@@ -76,7 +78,8 @@
 				CEE0E80F22044B9700860758 /* AllGroupsTableViewCell.swift */,
 				CEE0E81322045AED00860758 /* MyFriendsTableViewCell.swift */,
 				CE8207B62209985D0043FC44 /* SettingsTableViewCell.swift */,
-				CE3A29E4220C208A00B2ECCF /* NewsTableViewCell.swift */,
+				CE5177512212D60000208B1B /* NewTableViewCell.swift */,
+				CE5177522212D60000208B1B /* NewTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -84,6 +87,7 @@
 		CE13FDD42202FD08006C610A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				CE5177552212D9FD00208B1B /* TableView */,
 				CEE0E8072203317D00860758 /* Groups.swift */,
 				CE8207B2220831E00043FC44 /* MainView.swift */,
 				CE8207BA220B08F70043FC44 /* wallaper.swift */,
@@ -135,6 +139,13 @@
 				CEE069CC21FF03F100C3D42F /* SecondViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CE5177552212D9FD00208B1B /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 			files = (
 				CE167D1021F5EF25004B52C2 /* LaunchScreen.storyboard in Resources */,
 				CE167D0D21F5EF25004B52C2 /* Assets.xcassets in Resources */,
+				CE5177542212D60100208B1B /* NewTableViewCell.xib in Resources */,
 				CE167D0B21F5EF24004B52C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,7 +228,6 @@
 				CEE0E80C220445C400860758 /* MyGroupsTableViewController.swift in Sources */,
 				CEE0E81022044B9700860758 /* AllGroupsTableViewCell.swift in Sources */,
 				CE3A29E1220C18EA00B2ECCF /* SettingsViewController.swift in Sources */,
-				CE3A29E5220C208A00B2ECCF /* NewsTableViewCell.swift in Sources */,
 				CE167D0621F5EF24004B52C2 /* AppDelegate.swift in Sources */,
 				CE3A29E7220C288500B2ECCF /* NewsTableViewController.swift in Sources */,
 				CEE0E81822045DB500860758 /* PhotosCollectionViewCell.swift in Sources */,
@@ -224,6 +235,7 @@
 				CEE0E80E2204467400860758 /* AllGroupsTableViewController.swift in Sources */,
 				CEE0E8082203317D00860758 /* Groups.swift in Sources */,
 				CEE0E80A2204459000860758 /* MyGroupsTableViewCell.swift in Sources */,
+				CE5177532212D60100208B1B /* NewTableViewCell.swift in Sources */,
 				CEE0E81222045ABC00860758 /* MyFriendsTableViewController.swift in Sources */,
 				CEE0E81622045DA300860758 /* PhotosCollectionViewController.swift in Sources */,
 			);
