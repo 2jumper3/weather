@@ -33,15 +33,29 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Opo-yO-qDq" customClass="LikeButton" customModule="WeatherApp" customModuleProvider="target">
+                        <rect key="frame" x="265" y="116" width="50" height="27"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Lmy-SY-4vN"/>
+                            <constraint firstAttribute="height" constant="20" id="ods-A7-CAa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xar-Qh-IHD"/>
+                    </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Opo-yO-qDq" secondAttribute="trailing" constant="5" id="Cwg-y9-N38"/>
+                    <constraint firstAttribute="bottom" secondItem="Opo-yO-qDq" secondAttribute="bottom" constant="5" id="FWk-gT-84d"/>
                     <constraint firstAttribute="bottom" secondItem="1vN-O2-VBE" secondAttribute="bottom" constant="10" id="Z84-0B-l1a"/>
+                    <constraint firstAttribute="bottom" secondItem="Opo-yO-qDq" secondAttribute="bottom" constant="6.5" id="gWP-3Y-FDb"/>
                     <constraint firstItem="1vN-O2-VBE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="lJE-6S-DW8"/>
+                    <constraint firstAttribute="trailing" secondItem="Opo-yO-qDq" secondAttribute="trailing" constant="5" id="rWz-cV-iha"/>
                     <constraint firstItem="1vN-O2-VBE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zWi-Wn-zAx"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="likeButton" destination="Opo-yO-qDq" id="9S8-U7-jFz"/>
                 <outlet property="newsCell" destination="cZs-NV-Iai" id="Kri-JP-QXc"/>
                 <outlet property="newsImage" destination="1vN-O2-VBE" id="zb1-sY-SqH"/>
             </connections>

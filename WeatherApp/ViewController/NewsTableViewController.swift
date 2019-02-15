@@ -12,6 +12,12 @@ class NewsTableViewController: UITableViewController {
     
     var news = ["Favorites", "Moscow News", "In Your Region", "In Country", "In World"]
 
+    var newsArray = [
+        (title: "Favorites", emblem: UIImage(named: "image1")),
+        (title: "Moscow News", emblem: UIImage(named: "image2")),
+        (title: "In Your Region", emblem: UIImage(named: "image3")),
+        (title: "In Country", emblem: UIImage(named: "image4")),
+        (title: "In World", emblem: UIImage(named: "image5")),]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +58,8 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell", for: indexPath) as! NewTableViewCell
-        let new =  news[indexPath.row]
-        cell.newsCell?.text = new
+        let new =  self.newsArray[indexPath.row]
+        cell.configure(group: new.title, emblem: new.emblem!)
         // Configure the cell...
         
         return cell

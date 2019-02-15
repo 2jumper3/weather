@@ -11,9 +11,11 @@ import UIKit
 //private let reuseIdentifier = "Cell"
 
 class PhotosCollectionViewController: UICollectionViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,7 +25,36 @@ class PhotosCollectionViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
     }
-
+    
+    //Анимация фотографии
+    
+    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? PhotosCollectionViewCell {
+                UIView.animate(withDuration: 0.5,
+                               delay: 0,
+                               usingSpringWithDamping: 0.5,
+                               initialSpringVelocity: 0,
+                               options: [],
+                               animations: {
+                                cell.frame.origin.y -= 1
+                                cell.frame.origin.y += 1
+                                
+                })
+//                cell.photo?.transform = .init(scaleX: 0.50, y: 0.50)
+                cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+            }
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? PhotosCollectionViewCell {
+//                cell.photo?.transform = .identity
+                cell.contentView.backgroundColor = .clear
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -49,8 +80,9 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotosCollectionViewCell", for: indexPath) as! PhotosCollectionViewCell
-        cell.photo?.image = UIImage(named: "image")
-    
+            cell.photo?.image = UIImage(named: "image1")
+        
+        
         // Configure the cell
     
         return cell

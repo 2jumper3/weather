@@ -11,7 +11,8 @@ import UIKit
 class MyGroupsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var groupName: UILabel?
-    
+    @IBOutlet weak var images: UIImageView?
+
     func setGroup(group: Group) {
         self.groupName?.text = group.name
     }
@@ -26,5 +27,9 @@ class MyGroupsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        self.images?.clipsToBounds = true
+        self.images?.layer.cornerRadius = (self.images?.frame.width)! / 2
+    }
 }

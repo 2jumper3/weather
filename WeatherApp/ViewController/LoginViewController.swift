@@ -1,6 +1,6 @@
 //
 //  LoginViewController.swift
-//  WeatherApp
+//  Friends Store
 //
 //  Created by Sergey on 21/01/2019.
 //  Copyright © 2019 Sergey. All rights reserved.
@@ -21,18 +21,38 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var passwordTextBox:UITextField?
     
     @IBOutlet private weak var loginButton:UIButton?
+    
+    @IBOutlet private weak var loader: Loader?
+    @IBOutlet private weak var label: UILabel?
+
+    @IBOutlet weak var labelWidthConstraint: NSLayoutConstraint?
+
 
     private let demoLogin = ""
     private let demoPass = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.scrollView?.alpha = 0
         self.passwordTextBox?.isSecureTextEntry = true
         assignbackground()
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.loader?.start()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
+            self.loader?.stop()
+            self.loaderStopped()
+        })
     }
     
+    
+   
 
     // Actions
+    
     @IBAction func loginButtonAction ()  {
         guard let loginText  = self.loginTextBox?.text else {
             print ("no login")
@@ -56,6 +76,8 @@ class LoginViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+//    Алерты
+    
     func successAlert () {
     let alertController = UIAlertController(title: "Login", message: "Success", preferredStyle: .alert)
     let alertOk = UIAlertAction(title: "Succes", style: .cancel) { (action: UIAlertAction) in }
@@ -69,7 +91,7 @@ class LoginViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-   
+   //Клавиатура
     @objc func keyboardWasShown (notification: Notification) {
         let info = notification.userInfo! as NSDictionary
         let kbSize = (info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue).cgRectValue.size
@@ -84,8 +106,16 @@ class LoginViewController: UIViewController {
         scrollView?.contentInset = contentInsets
         scrollView?.scrollIndicatorInsets = contentInsets
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        self.loader?.start()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+            self.loader?.stop()
+            self.loaderStopped()
+        })
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWasShown), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillBeHidden(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -98,6 +128,24 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    func loaderStopped() {
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       options: [.curveEaseOut],
+                       animations: {
+//                        self.labelWidthConstraint?.constant = self.view.frame.size.height
+                        self.view.layoutIfNeeded()
+                        
+        }) { (finished: Bool) in
+            
+            UIView.animate(withDuration: 2, animations: {
+                self.scrollView?.alpha = 1
+            }, completion: { (finished: Bool) in
+            })
+        }
+    }
+    
     func assignbackground(){
         let background = UIImage(named: "wallaper")
         

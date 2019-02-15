@@ -28,5 +28,9 @@ class AllGroupsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        self.images?.clipsToBounds = true
+        self.images?.layer.cornerRadius = (self.images?.frame.width)! / 2
+    }
 }
