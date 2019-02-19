@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE045824221BE5A600CDF314 /* LoaderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE045823221BE5A600CDF314 /* LoaderNew.swift */; };
 		CE167D0621F5EF24004B52C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167D0521F5EF24004B52C2 /* AppDelegate.swift */; };
 		CE167D0B21F5EF24004B52C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE167D0921F5EF24004B52C2 /* Main.storyboard */; };
 		CE167D0D21F5EF25004B52C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE167D0C21F5EF25004B52C2 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE045823221BE5A600CDF314 /* LoaderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderNew.swift; sourceTree = "<group>"; };
 		CE167D0221F5EF24004B52C2 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE167D0521F5EF24004B52C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE167D0A21F5EF24004B52C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				CE99143222168D7E00939429 /* Loader.swift */,
+				CE045823221BE5A600CDF314 /* LoaderNew.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				CE99143322168D7E00939429 /* Loader.swift in Sources */,
 				CEE0E8082203317D00860758 /* Groups.swift in Sources */,
 				CEE0E80A2204459000860758 /* MyGroupsTableViewCell.swift in Sources */,
+				CE045824221BE5A600CDF314 /* LoaderNew.swift in Sources */,
 				CE5177532212D60100208B1B /* NewTableViewCell.swift in Sources */,
 				CEE0E81222045ABC00860758 /* MyFriendsTableViewController.swift in Sources */,
 				CEE0E81622045DA300860758 /* PhotosCollectionViewController.swift in Sources */,

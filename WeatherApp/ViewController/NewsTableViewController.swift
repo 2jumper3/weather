@@ -21,24 +21,24 @@ class NewsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        assignbackground()
+        assignbackground()
         let xib = UINib(nibName: "NewTableViewCell", bundle: Bundle.main)
         tableView?.register(xib, forCellReuseIdentifier: "NewTableViewCell")
 
     }
-//    func assignbackground(){
-//        let background = UIImage(named: "wallaper")
-//
-//        var imageView : UIImageView!
-//        imageView = UIImageView(frame: view.bounds)
-//        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
-//        imageView.clipsToBounds = true
-//        imageView.image = background
-//        imageView.center = view.center
-//        view.addSubview(imageView)
-//        self.view.sendSubviewToBack(imageView)
-    
-//    }
+
+    func assignbackground(){
+        
+        let background = UIImage(named: "wallaper")
+
+        var imageView : UIImageView!
+        imageView = UIImageView(frame: view.bounds)
+        imageView.contentMode =  UIView.ContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = background
+        imageView.center = view.center
+        self.tableView.backgroundView = imageView
+    }
 
     // MARK: - Table view data source
 
@@ -54,8 +54,7 @@ class NewsTableViewController: UITableViewController {
         
         
     }
-    
-    
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewTableViewCell", for: indexPath) as! NewTableViewCell
         let new =  self.newsArray[indexPath.row]
@@ -64,8 +63,21 @@ class NewsTableViewController: UITableViewController {
         
         return cell
     }
-
+    
+    
+    // метод когда отображается сама ячейка
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let cell = cell as! NewTableViewCell
+//        UIView.animate(withDuration: 1) {
+//            cell.alpha = 1
+//        }
+//
+//}
+//    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let cell = cell as! NewTableViewCell
+//        UIView.animate(withDuration: 1) {
+//            cell.alpha = 0
+//            }
+//    }
 }
-
-
 

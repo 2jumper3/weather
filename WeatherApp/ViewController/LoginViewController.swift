@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var loginButton:UIButton?
     
     @IBOutlet private weak var loader: Loader?
+    @IBOutlet private weak var loaderNew: LoaderNew?
+
     @IBOutlet private weak var label: UILabel?
 
     @IBOutlet weak var labelWidthConstraint: NSLayoutConstraint?
@@ -42,7 +44,8 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(animated)
         
         self.loader?.start()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+//            self.loaderNew?.animate()
             self.loader?.stop()
             self.loaderStopped()
         })
@@ -112,7 +115,7 @@ class LoginViewController: UIViewController {
         
         super.viewWillAppear(animated)
         self.loader?.start()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
             self.loader?.stop()
             self.loaderStopped()
         })

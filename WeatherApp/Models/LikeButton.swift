@@ -64,6 +64,7 @@ class LikeButton: UIControl {
         let imageName = self.isLiked ? "like" : "dislike"
         let image = UIImage(named: imageName)
         self.likeImageView?.image = image
+        
     }
     
     private func updateCountLabel() {
@@ -72,8 +73,18 @@ class LikeButton: UIControl {
         
         if self.isLiked {
             self.counter += 1
+            UIView.transition(with: countLabel!,
+                              duration: 0.5,
+                              options: .transitionFlipFromTop,
+                              animations: {
+            })
         } else {
             self.counter -= 1
+            UIView.transition(with: countLabel!,
+                              duration: 0.5,
+                              options: .transitionFlipFromTop,
+                              animations: {
+            })
         }
         self.countLabel?.text = "\(self.counter)"
     }

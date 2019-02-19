@@ -28,44 +28,61 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     //Анимация фотографии
     
+    func animateAuthButton() {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 200
+        animation.mass = 2
+        animation.duration = 2
+        animation.beginTime = CACurrentMediaTime() + 1
+        animation.fillMode = CAMediaTimingFillMode.backwards
+    }
+    
+//    Анимация
+    
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.5) {
             if let cell = collectionView.cellForItem(at: indexPath) as? PhotosCollectionViewCell {
-                UIView.animate(withDuration: 0.5,
+                UIView.animate(withDuration: 1,
                                delay: 0,
                                usingSpringWithDamping: 0.5,
                                initialSpringVelocity: 0,
                                options: [],
                                animations: {
-                                cell.frame.origin.y -= 1
-                                cell.frame.origin.y += 1
+                                var screenSize = UIScreen.main.bounds.size
+                                let height = CGFloat(self.view.frame.size.height)
+                                let width  = CGFloat(self.view.frame.size.width)
+//                                cell.photo?.frame = CGRect(x: 0, y: 0, width: width, height: height)
+                                cell.photo?.bounds = CGRect(x: 0, y: 0, width: 250, height: 250)
                                 
+                                
+//                                cell.photo?.transform = .init(scaleX: 1.50, y: 1.50)
+//                                cell.photo?.transform = .init(scaleX: 1, y: 1)
+//                                cell.frame.origin.y += 10
+
                 })
 //                cell.photo?.transform = .init(scaleX: 0.50, y: 0.50)
                 cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
             }
         }
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSize = UIScreen.main.bounds.size
+        
+        return cellSize
+        //        let viewControllerSize = self.view.frame.size
+        //        return viewControllerSize
+    }
     override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.5) {
             if let cell = collectionView.cellForItem(at: indexPath) as? PhotosCollectionViewCell {
 //                cell.photo?.transform = .identity
+                
                 cell.contentView.backgroundColor = .clear
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-    // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -87,37 +104,5 @@ class PhotosCollectionViewController: UICollectionViewController {
     
         return cell
     }
-    
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
+  
 }

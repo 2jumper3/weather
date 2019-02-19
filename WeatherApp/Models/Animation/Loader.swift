@@ -18,13 +18,9 @@ class Loader: UIView {
     
     weak var label: UILabel?
     
-    var animationStep: cycles = .cycle2 {
-        didSet {
-            self.updateStep()
-        }
-    }
         let animationaDuration: TimeInterval = 1
-        
+        let delay: TimeInterval = 0.5
+    
         private var isLoading: Bool = false
         
         
@@ -56,57 +52,42 @@ class Loader: UIView {
         func start() {
         self.isHidden  = false
         self.isLoading = true
-        self.updateStep()
+        self.fullAnimation()
         }
         
         func stop() {
         self.isHidden  = true
         self.isLoading = false
         }
-        
-        func updateStep() {
-        print("\(self.label)")
-        
-        if false == self.isLoading {
-        return
-        }
-        
-        switch self.animationStep {
-        case .cycle1:
-        self.animateStep1()
-        case .cycle2:
-        self.animateStep2()
-        case .cycleEnd:
-        self.animateStepEnd()
-        }
-        }
-        
-        func animateStep1() {
-        UIView.animate(withDuration: self.animationaDuration,
-        animations: {
-        self.label?.frame.origin.x = self.frame.size.width / 3 * 2
-        }) { (finished: Bool) in
-        self.animationStep = .cycle2
-        }
-        }
-        
-        func animateStep2() {
-        UIView.animate(withDuration: self.animationaDuration,
-        animations: {
-        self.label?.frame.origin.x = self.frame.size.width / 3
-        }) { (finished: Bool) in
-        self.animationStep = .cycleEnd
-        }
-        }
+
     
-        func animateStepEnd() {
-        UIView.animate(withDuration: self.animationaDuration,
-        animations: {
-        self.label?.frame.origin.x = 1
+    func fullAnimation() {
+        UIView.animateKeyframes(withDuration: 3, delay: 0,
+                                options: [.repeat],
+                                animations: {
+        self.addAnimation()
+                                   
         }) { (finished: Bool) in
-        self.animationStep = .cycle1
+            
         }
-        }
+
     }
-
-
+    
+    func addAnimation () {
+        UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.33, animations: {
+                            self.label?.frame.origin.x = self.frame.size.width / 3
+                            self.label?.alpha = 1
+            
+        })
+        UIView.addKeyframe(withRelativeStartTime: 0.33, relativeDuration: 0.66, animations: {
+                            self.label?.frame.origin.x = self.frame.size.width / 3 * 2
+                            self.label?.alpha = 1
+//                            self.label?.alpha = 0
+        })
+        UIView.addKeyframe(withRelativeStartTime: 0.66, relativeDuration: 0.33, animations: {
+                            self.label?.frame.origin.x = self.frame.size.width / 1
+                            self.label?.alpha = 0
+        })
+        
+    }
+ }

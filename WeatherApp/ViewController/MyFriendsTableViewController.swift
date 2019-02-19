@@ -162,7 +162,7 @@ class MyFriendsTableViewController: UITableViewController {
         
         //ячейка от таблицы
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyFriendsTableViewCell", for: indexPath) as! MyFriendsTableViewCell
-//        сам город
+//        сам друг
         let friend = self.friendsFilter[indexPath.row]
         cell.setFriend(friend: friend)
         
