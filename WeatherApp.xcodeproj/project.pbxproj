@@ -18,10 +18,16 @@
 		CE5177532212D60100208B1B /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5177512212D60000208B1B /* NewTableViewCell.swift */; };
 		CE5177542212D60100208B1B /* NewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5177522212D60000208B1B /* NewTableViewCell.xib */; };
 		CE517757221460E500208B1B /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE517756221460E500208B1B /* LikeButton.swift */; };
+		CE6314AE221E9CB30056DBED /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6314AD221E9CB30056DBED /* Router.swift */; };
+		CE6314B0221E9CF30056DBED /* HintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6314AF221E9CF30056DBED /* HintsViewController.swift */; };
+		CE6314B3221EABA30056DBED /* AnimationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6314B2221EABA30056DBED /* AnimationControllers.swift */; };
+		CE6314B5221EB0F20056DBED /* PresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6314B4221EB0F20056DBED /* PresentationDelegate.swift */; };
 		CE8207B3220831E00043FC44 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8207B2220831E00043FC44 /* MainView.swift */; };
 		CE8207B72209985D0043FC44 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8207B62209985D0043FC44 /* SettingsTableViewCell.swift */; };
 		CE8207BB220B08F70043FC44 /* wallaper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8207BA220B08F70043FC44 /* wallaper.swift */; };
 		CE99143322168D7E00939429 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99143222168D7E00939429 /* Loader.swift */; };
+		CEC3DCAE221FF2DD00033BE3 /* NavigationDeligate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3DCAD221FF2DD00033BE3 /* NavigationDeligate.swift */; };
+		CEC3DCB02220085100033BE3 /* NavigationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC3DCAF2220085100033BE3 /* NavigationAnimation.swift */; };
 		CEE069CD21FF03F100C3D42F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE069CC21FF03F100C3D42F /* SecondViewController.swift */; };
 		CEE0E8082203317D00860758 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE0E8072203317D00860758 /* Groups.swift */; };
 		CEE0E80A2204459000860758 /* MyGroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE0E8092204459000860758 /* MyGroupsTableViewCell.swift */; };
@@ -48,10 +54,16 @@
 		CE5177512212D60000208B1B /* NewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewCell.swift; sourceTree = "<group>"; };
 		CE5177522212D60000208B1B /* NewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTableViewCell.xib; sourceTree = "<group>"; };
 		CE517756221460E500208B1B /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		CE6314AD221E9CB30056DBED /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		CE6314AF221E9CF30056DBED /* HintsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintsViewController.swift; sourceTree = "<group>"; };
+		CE6314B2221EABA30056DBED /* AnimationControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationControllers.swift; sourceTree = "<group>"; };
+		CE6314B4221EB0F20056DBED /* PresentationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDelegate.swift; sourceTree = "<group>"; };
 		CE8207B2220831E00043FC44 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CE8207B62209985D0043FC44 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		CE8207BA220B08F70043FC44 /* wallaper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallaper.swift; sourceTree = "<group>"; };
 		CE99143222168D7E00939429 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		CEC3DCAD221FF2DD00033BE3 /* NavigationDeligate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDeligate.swift; sourceTree = "<group>"; };
+		CEC3DCAF2220085100033BE3 /* NavigationAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAnimation.swift; sourceTree = "<group>"; };
 		CEE069CC21FF03F100C3D42F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		CEE069F5220052AA00C3D42F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		CEE0E8072203317D00860758 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
@@ -127,6 +139,7 @@
 				CE167D0C21F5EF25004B52C2 /* Assets.xcassets */,
 				CE167D0E21F5EF25004B52C2 /* LaunchScreen.storyboard */,
 				CE167D1121F5EF25004B52C2 /* Info.plist */,
+				CE6314B1221EAB5E0056DBED /* ViewContollerAnimations */,
 				CE13FDD42202FD08006C610A /* Models */,
 				CE13FDD12202FB8E006C610A /* Cells */,
 				CE167D1721F5EF36004B52C2 /* ViewController */,
@@ -137,6 +150,8 @@
 		CE167D1721F5EF36004B52C2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CE6314AD221E9CB30056DBED /* Router.swift */,
+				CE6314AF221E9CF30056DBED /* HintsViewController.swift */,
 				CEE0E80D2204467400860758 /* AllGroupsTableViewController.swift */,
 				CEE0E80B220445C400860758 /* MyGroupsTableViewController.swift */,
 				CE3A29E0220C18EA00B2ECCF /* SettingsViewController.swift */,
@@ -154,6 +169,17 @@
 			children = (
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		CE6314B1221EAB5E0056DBED /* ViewContollerAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				CE6314B2221EABA30056DBED /* AnimationControllers.swift */,
+				CEC3DCAF2220085100033BE3 /* NavigationAnimation.swift */,
+				CE6314B4221EB0F20056DBED /* PresentationDelegate.swift */,
+				CEC3DCAD221FF2DD00033BE3 /* NavigationDeligate.swift */,
+			);
+			path = ViewContollerAnimations;
 			sourceTree = "<group>";
 		};
 		CE99143122168D4E00939429 /* Animation */ = {
@@ -237,22 +263,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6314AE221E9CB30056DBED /* Router.swift in Sources */,
 				CEE069CD21FF03F100C3D42F /* SecondViewController.swift in Sources */,
 				CE8207BB220B08F70043FC44 /* wallaper.swift in Sources */,
 				CE8207B3220831E00043FC44 /* MainView.swift in Sources */,
+				CEC3DCB02220085100033BE3 /* NavigationAnimation.swift in Sources */,
 				CE8207B72209985D0043FC44 /* SettingsTableViewCell.swift in Sources */,
 				CE517757221460E500208B1B /* LikeButton.swift in Sources */,
+				CEC3DCAE221FF2DD00033BE3 /* NavigationDeligate.swift in Sources */,
+				CE6314B5221EB0F20056DBED /* PresentationDelegate.swift in Sources */,
 				CE167D1921F5EF4F004B52C2 /* LoginViewController.swift in Sources */,
 				CEE0E80C220445C400860758 /* MyGroupsTableViewController.swift in Sources */,
 				CEE0E81022044B9700860758 /* AllGroupsTableViewCell.swift in Sources */,
 				CE3A29E1220C18EA00B2ECCF /* SettingsViewController.swift in Sources */,
 				CE167D0621F5EF24004B52C2 /* AppDelegate.swift in Sources */,
 				CE3A29E7220C288500B2ECCF /* NewsTableViewController.swift in Sources */,
+				CE6314B3221EABA30056DBED /* AnimationControllers.swift in Sources */,
 				CEE0E81822045DB500860758 /* PhotosCollectionViewCell.swift in Sources */,
 				CEE0E81422045AED00860758 /* MyFriendsTableViewCell.swift in Sources */,
 				CEE0E80E2204467400860758 /* AllGroupsTableViewController.swift in Sources */,
 				CE99143322168D7E00939429 /* Loader.swift in Sources */,
 				CEE0E8082203317D00860758 /* Groups.swift in Sources */,
+				CE6314B0221E9CF30056DBED /* HintsViewController.swift in Sources */,
 				CEE0E80A2204459000860758 /* MyGroupsTableViewCell.swift in Sources */,
 				CE045824221BE5A600CDF314 /* LoaderNew.swift in Sources */,
 				CE5177532212D60100208B1B /* NewTableViewCell.swift in Sources */,

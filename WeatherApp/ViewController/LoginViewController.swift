@@ -28,16 +28,27 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var label: UILabel?
 
     @IBOutlet weak var labelWidthConstraint: NSLayoutConstraint?
+    
+    @IBOutlet weak var hintButton: UIButton?
 
+    let router = Router()
 
     private let demoLogin = ""
     private let demoPass = ""
+    
+    @objc   func presentBySwipe() {
+        self.router.openHints()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView?.alpha = 0
         self.passwordTextBox?.isSecureTextEntry = true
         assignbackground()
+        
+        let swipe = UISwipeGestureRecognizer(target: self, action: #selector(presentBySwipe))
+        swipe.direction = .right
+        self.view.addGestureRecognizer(swipe)
        
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -77,6 +88,10 @@ class LoginViewController: UIViewController {
     
     @IBAction func closeKeyboard () {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func hintsButtonAction() {
+        self.router.openHints()
     }
     
 //    Алерты
