@@ -36,9 +36,9 @@ class Router: NSObject {
 //        transition.type = CATransitionType.push
 //        transition.subtype = CATransitionSubtype.fromLeft
 //        appDelegate.window?.rootViewController?.view.window?.layer.add(transition, forKey: kCATransition)
-
+//
 //        viewController.transitioningDelegate = self.presentationDelegate
-        
+//
 //        appDelegate.window?.rootViewController?.present(viewController, animated: true, completion: nil)
         
     }
@@ -56,13 +56,13 @@ class Router: NSObject {
         
         
         navigationController.popViewController(animated: true)
-        //        let transition = CATransition()
+//                let transition = CATransition()
 //        transition.duration = 0.5
 //        transition.type = CATransitionType.push
 //        transition.subtype = CATransitionSubtype.fromRight
 //        viewController?.view.window?.layer.add(transition, forKey: kCATransition)
-
-        
+//
+//
 //        viewController?.dismiss(animated: true, completion: nil)
         
     }

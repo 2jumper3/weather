@@ -10,6 +10,8 @@ import UIKit
 
 class NewsTableViewController: UITableViewController {
     
+    @IBOutlet private weak var sessionInfo: UILabel?
+    
     var news = ["Favorites", "Moscow News", "In Your Region", "In Country", "In World"]
 
     var newsArray = [
@@ -20,6 +22,11 @@ class NewsTableViewController: UITableViewController {
         (title: "In World", emblem: UIImage(named: "image5")),]
 
     override func viewDidLoad() {
+        
+        let user = Session.shared
+        user.userName = "Sergey"
+        user.tokenID = 1
+        sessionInfo?.text = String(describing: user.tokenID)
         super.viewDidLoad()
         assignbackground()
         let xib = UINib(nibName: "NewTableViewCell", bundle: Bundle.main)
@@ -63,6 +70,11 @@ class NewsTableViewController: UITableViewController {
         
         return cell
     }
+}
+    
+ 
+
+    
     
     
     // метод когда отображается сама ячейка
@@ -79,5 +91,5 @@ class NewsTableViewController: UITableViewController {
 //            cell.alpha = 0
 //            }
 //    }
-}
+
 

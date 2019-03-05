@@ -8,7 +8,12 @@
 
 import UIKit
 
+
+
+
 class LoginViewController: UIViewController {
+    
+    var loginDelegate: LoginAPIProtocol = Login.shared
     
     @IBOutlet private weak var scrollView:UIScrollView?
     
@@ -26,6 +31,7 @@ class LoginViewController: UIViewController {
     @IBOutlet private weak var loaderNew: LoaderNew?
 
     @IBOutlet private weak var label: UILabel?
+    
 
     @IBOutlet weak var labelWidthConstraint: NSLayoutConstraint?
     
@@ -45,7 +51,7 @@ class LoginViewController: UIViewController {
         self.scrollView?.alpha = 0
         self.passwordTextBox?.isSecureTextEntry = true
         assignbackground()
-        
+
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(presentBySwipe))
         swipe.direction = .right
         self.view.addGestureRecognizer(swipe)
@@ -56,7 +62,6 @@ class LoginViewController: UIViewController {
         
         self.loader?.start()
         DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
-//            self.loaderNew?.animate()
             self.loader?.stop()
             self.loaderStopped()
         })
@@ -77,7 +82,16 @@ class LoginViewController: UIViewController {
             return
         }
         if self.demoLogin == loginText && self.demoPass == passwordText {
-            self.performSegue(withIdentifier: "openApp", sender: nil)
+            
+//            self.performSegue(withIdentifier: "openApp", sender: nil)
+
+//            self.login(login: loginText, password: passwordText) { (error: Error?) in
+//                self.performSegue(withIdentifier: "openApp", sender: nil)
+            let manager = Login.shared
+            manager.loginCompletion = { (error: Error?) in
+                self.performSegue(withIdentifier: "openApp", sender: nil)
+            }
+            manager.login(login: loginText, password: passwordText)
         } else {
             self.errorAlert()
         }
@@ -177,3 +191,11 @@ class LoginViewController: UIViewController {
         self.view.sendSubviewToBack(imageView)
     }
 }
+
+
+extension LoginViewController {
+    func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
+        self.loginDelegate.login(login: login, password: password , completion: completion)
+    }
+}
+
