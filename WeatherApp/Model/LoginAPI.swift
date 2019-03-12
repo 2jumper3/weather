@@ -7,26 +7,57 @@
 //
 
 import UIKit
+import Alamofire
 
 
 protocol LoginAPIProtocol: class {
     func login(login: String, password: String, completion: @escaping (Error?) -> ())
     
-    func login(login: String, password: String)
-    var loginCompletion: ((Error?) -> ())? {get set}
-    
-    var userName: String? {get}
-    
-    func changeUserName(newUserName: String)
+    func getWeather(completion: @escaping (Error?) -> ())
 }
 
 class Login {
     
     private init () {}
     
-    static var shared: LoginAPIProtocol = DefaultLoginAPIManager()
+    static var shared: LoginAPIProtocol = URLSessionAPIManeger()
 
 }
+
+private class URLSessionAPIManeger: LoginAPIProtocol {
+    func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
+        completion(nil)
+    }
+    func getWeather(completion: @escaping (Error?) -> ()) {
+        let requestData = RequestData.createRequestDataForGetWeather()
+        
+        self.execute(requestData: requestData) { (data: Data?, error: Error?) in
+            completion(error)
+        }
+    }
+
+    // MARK -
+    func execute(requestData: RequestData, completion: @escaping (Data?, Error?) -> ()) {
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = requestData.sheme
+        urlComponents.host = requestData.host
+        urlComponents.path = requestData.path
+        
+        var urlQueryItems: [URLQueryItem] = []
+        
+        for getParm in requestData.getParms.values {
+            
+        }
+        urlComponents.queryItems = urlQueryItems
+        
+//        if let url 
+//
+//        var request = URLRequest(url: urlComponents.url, cachePolicy: <#T##URLRequest.CachePolicy#>, timeoutInterval: <#T##TimeInterval#>)
+
+    }
+}
+
 // Синглтон для хранения сессии
 class Session {
     
@@ -43,6 +74,10 @@ class Session {
 private class DefaultLoginAPIManager: LoginAPIProtocol {
     var loginCompletion: ((Error?) -> ())?
     var userName: String?
+    
+    func getWeather(completion: @escaping (Error?) -> ()) {completion(nil)
+}
+
     
     func changeUserName(newUserName: String) {
         self.userName = newUserName

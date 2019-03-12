@@ -31,15 +31,15 @@ class Router: NSObject {
         navigationController.delegate = self.navigationDeligate
         navigationController.pushViewController(viewController, animated: true)
 
-//        let transition = CATransition()
-//        transition.duration = 1
-//        transition.type = CATransitionType.push
-//        transition.subtype = CATransitionSubtype.fromLeft
-//        appDelegate.window?.rootViewController?.view.window?.layer.add(transition, forKey: kCATransition)
-//
-//        viewController.transitioningDelegate = self.presentationDelegate
-//
-//        appDelegate.window?.rootViewController?.present(viewController, animated: true, completion: nil)
+        let transition = CATransition()
+        transition.duration = 1
+        transition.type = CATransitionType.push
+        transition.subtype = CATransitionSubtype.fromLeft
+        appDelegate.window?.rootViewController?.view.window?.layer.add(transition, forKey: kCATransition)
+
+        viewController.transitioningDelegate = self.presentationDelegate
+
+        appDelegate.window?.rootViewController?.present(viewController, animated: true, completion: nil)
         
     }
     

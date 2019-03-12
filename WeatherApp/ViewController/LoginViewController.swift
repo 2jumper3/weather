@@ -84,14 +84,19 @@ class LoginViewController: UIViewController {
         if self.demoLogin == loginText && self.demoPass == passwordText {
             
 //            self.performSegue(withIdentifier: "openApp", sender: nil)
+            self.navigationController?.pushViewController(VKViewController(), animated: true)
 
-//            self.login(login: loginText, password: passwordText) { (error: Error?) in
+
+            self.login(login: loginText, password: passwordText) { (error: Error?) in
 //                self.performSegue(withIdentifier: "openApp", sender: nil)
-            let manager = Login.shared
-            manager.loginCompletion = { (error: Error?) in
-                self.performSegue(withIdentifier: "openApp", sender: nil)
+                self.navigationController?.pushViewController(VKViewController(), animated: true)
+
             }
-            manager.login(login: loginText, password: passwordText)
+//            let manager = Login.shared
+//            manager.loginCompletion = { (error: Error?) in
+//                self.performSegue(withIdentifier: "openApp", sender: nil)
+//            }
+//            manager.login(login: loginText, password: passwordText)
         } else {
             self.errorAlert()
         }
@@ -195,7 +200,9 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
-        self.loginDelegate.login(login: login, password: password , completion: completion)
+//        self.loginDelegate.login(login: login, password: password , completion: completion)
+        self.navigationController?.pushViewController(VKViewController(), animated: true)
+
     }
 }
 

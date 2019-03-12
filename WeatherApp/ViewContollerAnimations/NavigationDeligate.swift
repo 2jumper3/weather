@@ -42,7 +42,7 @@ class internalNavigationController: UINavigationController, UINavigationControll
     }
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .push {
-            return PushAnimation()
+            return PushAnimation.init(isPresented: true)
         } else if operation == .pop {
             return PopAnimation()
         }

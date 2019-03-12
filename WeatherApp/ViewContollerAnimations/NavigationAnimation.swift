@@ -10,12 +10,12 @@ import UIKit
 
 class PushAnimation: NSObject, UIViewControllerAnimatedTransitioning {
 
-//    var isPresented: Bool = true
-//    
-//    init (isPresented: Bool) {
-//        super.init()
-//        self.isPresented = isPresented
-//    }
+    var isPresented: Bool = true
+    
+    init (isPresented: Bool) {
+        super.init()
+        self.isPresented = isPresented
+    }
     
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
