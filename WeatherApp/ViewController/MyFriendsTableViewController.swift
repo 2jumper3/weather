@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import WebKit
+import Alamofire
 
-class MyFriendsTableViewController: UITableViewController {
+class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate {
     
 
     
@@ -40,14 +42,22 @@ class MyFriendsTableViewController: UITableViewController {
         self.tableView.tableFooterView = UIView()
 
         
+
         assignbackground()
         addFriends()
         fillSections()
-        reloadCities()
+        reloadFriends()
        
     }
     
+    
+    
+   
+        
+    
     func addFriends() {
+//        https://api.vk.com/method/friends.getOnline?v=5.52&access_token=2e827693156bf14eefc22514bb5cf567143d1fc6745a1e0e7c8a807dbbe53772f46d94185c0d1c3cc49d8
+    
     let allFriends = ["Елизавета", "Петр", "Иван", "Федор", "Сергей", "Николай", "Борис", "Иоан"]
     for name in allFriends {
     let friend = Friend()
@@ -86,7 +96,7 @@ class MyFriendsTableViewController: UITableViewController {
     }
     
     
-    func reloadCities() {
+    func reloadFriends() {
         
         self.friendsSeparators.removeAll()
         
@@ -174,6 +184,8 @@ class MyFriendsTableViewController: UITableViewController {
         
         return cell
     }
+    
+    
     
     }
 

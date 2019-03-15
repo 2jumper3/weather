@@ -43,7 +43,7 @@ class VKViewController: UIViewController, WKNavigationDelegate {
             URLQueryItem(name: "client_id", value: client_id),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "display", value: "mobile"),
-            URLQueryItem(name: "scope", value: "262150"),
+            URLQueryItem(name: "scope", value: "262150"), //65536
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.92"),
             URLQueryItem(name: "state", value: "test"),
@@ -72,9 +72,13 @@ class VKViewController: UIViewController, WKNavigationDelegate {
                     
                     if item.name == "access_token" {
                         print("TOKEN IS \(item.value)")
+                        Session.shared.tokenID = item.value
                     }
                 }
             }
+//            dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "openVKLogin", sender: nil)
+
         }
         
         decisionHandler(.allow)

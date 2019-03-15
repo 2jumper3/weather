@@ -25,7 +25,7 @@ class NewsTableViewController: UITableViewController {
         
         let user = Session.shared
         user.userName = "Sergey"
-        user.tokenID = 1
+        user.tokenID = "1"
         sessionInfo?.text = String(describing: user.tokenID)
         super.viewDidLoad()
         assignbackground()

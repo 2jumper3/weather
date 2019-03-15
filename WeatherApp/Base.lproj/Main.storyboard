@@ -557,7 +557,7 @@
                                         <state key="normal" title="LogIn Via VK"/>
                                         <connections>
                                             <action selector="loginButtonAction" destination="2dm-bF-NvM" eventType="touchUpInside" id="MtH-bn-0tk"/>
-                                            <segue destination="nXf-ap-Jty" kind="show" identifier="openVKLogin" id="amw-C2-5bC"/>
+                                            <segue destination="nXf-ap-Jty" kind="show" identifier="" id="amw-C2-5bC"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -620,6 +620,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="spI-41-1O0"/>
                     </view>
+                    <connections>
+                        <segue destination="mAn-6v-4xj" kind="show" identifier="openVKLogin" id="PX2-Vf-hla"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8no-J0-dex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -629,4 +632,7 @@
     <resources>
         <image name="image" width="256" height="179"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wuE-tv-oct"/>
+    </inferredMetricsTieBreakers>
 </document>

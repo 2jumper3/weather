@@ -66,7 +66,7 @@ class Session {
     private init () {}
     
     var userName: String?
-    var tokenID: Int?
+    var tokenID: String?
 }
 
 
