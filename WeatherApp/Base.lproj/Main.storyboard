@@ -199,7 +199,7 @@
                     <navigationItem key="navigationItem" title="Groups" id="RK3-y2-6cU">
                         <barButtonItem key="leftBarButtonItem" title="Log out" id="96V-6B-eU6">
                             <connections>
-                                <segue destination="oac-FN-hmj" kind="unwind" unwindAction="logOutWithSegue:" id="8je-Lu-21d"/>
+                                <segue destination="oac-FN-hmj" kind="unwind" unwindAction="logOutWithSegue:" id="ZOH-4w-kkH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="F09-PL-8Db">
@@ -569,6 +569,9 @@
                                     <constraint firstAttribute="height" constant="30" id="B4q-yM-03J"/>
                                 </constraints>
                                 <state key="normal" title="Hints"/>
+                                <connections>
+                                    <action selector="hintsButtonAction" destination="2dm-bF-NvM" eventType="touchUpInside" id="vLS-tl-7ZJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -10,7 +10,9 @@ import Foundation
 
 
 class FriendsVK: Decodable {
-    var friendID: Int
+    var friendID: Int = 0
+    
+    init () {}
     
     enum CodingKeys: String, CodingKey {
         case friendID = "friendID"
@@ -28,11 +30,14 @@ class FriendsVK: Decodable {
 //
 ////https://api.vk.com/method/users.get?user_id=210700286&v=5.52
 
-class UserInfo: Decodable {
+class UserInfoResponse: Decodable {
 //{"response":[{"id":210700286,"first_name":"Lindsey","last_name":"Stirling"}]}
-    var id: Int
-    var first_name: String
-    var last_name: String
+    var id: Int = 0
+    var first_name: String = ""
+    var last_name: String = ""
+    
+    init () {}
+
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -49,8 +54,10 @@ class UserInfo: Decodable {
     
 
 
-class UserInfoResponse: Decodable {
-    var response: [UserInfo]
+class UserInfoMainResponse: Decodable {
+    var response: [UserInfoResponse] = []
+    
+    init () {}
     
     enum CodingKeys: String, CodingKey {
         case response = "response"
@@ -58,7 +65,7 @@ class UserInfoResponse: Decodable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        response = try container.decode([UserInfo].self, forKey: .response)
+        response = try container.decode([UserInfoResponse].self, forKey: .response)
 }
 }
 

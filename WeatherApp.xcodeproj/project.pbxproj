@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		34D23470773C0C07B21E492B /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD8D5BAD2EAA45F96827393 /* Pods_WeatherApp.framework */; };
+		CE00CAD92240D816000058BC /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00CAD82240D816000058BC /* KeychainConfiguration.swift */; };
+		CE00CADB2240D82F000058BC /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00CADA2240D82F000058BC /* KeychainPasswordItem.swift */; };
+		CE00CADE2240D953000058BC /* FilesDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00CADD2240D953000058BC /* FilesDataStorage.swift */; };
+		CE00CAE12240DDCE000058BC /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00CAE02240DDCE000058BC /* DataStorage.swift */; };
+		CE00CAE52240F8D1000058BC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE00CAE32240F8D1000058BC /* Model.xcdatamodeld */; };
+		CE00CAE72240FB00000058BC /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00CAE62240FB00000058BC /* CoreDataStorage.swift */; };
+		CE00CAEA22411A56000058BC /* RealmDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00CAE922411A56000058BC /* RealmDataStorage.swift */; };
 		CE02D3D0222D22DC002286A1 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D3CF222D22DC002286A1 /* LoginAPI.swift */; };
 		CE045824221BE5A600CDF314 /* LoaderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE045823221BE5A600CDF314 /* LoaderNew.swift */; };
 		CE167D0621F5EF24004B52C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167D0521F5EF24004B52C2 /* AppDelegate.swift */; };
@@ -20,6 +27,8 @@
 		CE5177532212D60100208B1B /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5177512212D60000208B1B /* NewTableViewCell.swift */; };
 		CE5177542212D60100208B1B /* NewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5177522212D60000208B1B /* NewTableViewCell.xib */; };
 		CE517757221460E500208B1B /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE517756221460E500208B1B /* LikeButton.swift */; };
+		CE6032B0223FBABC009631AB /* InfoDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6032AF223FBABC009631AB /* InfoDataStorage.swift */; };
+		CE6032B2223FBC94009631AB /* SecuredDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6032B1223FBC94009631AB /* SecuredDataStorage.swift */; };
 		CE6314AE221E9CB30056DBED /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6314AD221E9CB30056DBED /* Router.swift */; };
 		CE6314B0221E9CF30056DBED /* HintsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6314AF221E9CF30056DBED /* HintsViewController.swift */; };
 		CE6314B3221EABA30056DBED /* AnimationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6314B2221EABA30056DBED /* AnimationControllers.swift */; };
@@ -59,6 +68,13 @@
 /* Begin PBXFileReference section */
 		7F8F0616C06282595C616CFE /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B6895948318D7642BCA2D977 /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		CE00CAD82240D816000058BC /* KeychainConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		CE00CADA2240D82F000058BC /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		CE00CADD2240D953000058BC /* FilesDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesDataStorage.swift; sourceTree = "<group>"; };
+		CE00CAE02240DDCE000058BC /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		CE00CAE42240F8D1000058BC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CE00CAE62240FB00000058BC /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
+		CE00CAE922411A56000058BC /* RealmDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStorage.swift; sourceTree = "<group>"; };
 		CE02D3CF222D22DC002286A1 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		CE045823221BE5A600CDF314 /* LoaderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderNew.swift; sourceTree = "<group>"; };
 		CE167D0221F5EF24004B52C2 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +89,8 @@
 		CE5177512212D60000208B1B /* NewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewCell.swift; sourceTree = "<group>"; };
 		CE5177522212D60000208B1B /* NewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTableViewCell.xib; sourceTree = "<group>"; };
 		CE517756221460E500208B1B /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		CE6032AF223FBABC009631AB /* InfoDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDataStorage.swift; sourceTree = "<group>"; };
+		CE6032B1223FBC94009631AB /* SecuredDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuredDataStorage.swift; sourceTree = "<group>"; };
 		CE6314AD221E9CB30056DBED /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		CE6314AF221E9CF30056DBED /* HintsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintsViewController.swift; sourceTree = "<group>"; };
 		CE6314B2221EABA30056DBED /* AnimationControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationControllers.swift; sourceTree = "<group>"; };
@@ -138,9 +156,54 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE00CAD72240D611000058BC /* Secured */ = {
+			isa = PBXGroup;
+			children = (
+				CE6032B1223FBC94009631AB /* SecuredDataStorage.swift */,
+				CE00CADA2240D82F000058BC /* KeychainPasswordItem.swift */,
+				CE00CAD82240D816000058BC /* KeychainConfiguration.swift */,
+			);
+			path = Secured;
+			sourceTree = "<group>";
+		};
+		CE00CADC2240D93D000058BC /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE00CADD2240D953000058BC /* FilesDataStorage.swift */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		CE00CADF2240DD98000058BC /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				CE00CAE22240F8B4000058BC /* CoreData */,
+				CE00CAE02240DDCE000058BC /* DataStorage.swift */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		CE00CAE22240F8B4000058BC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CE00CAE32240F8D1000058BC /* Model.xcdatamodeld */,
+				CE00CAE62240FB00000058BC /* CoreDataStorage.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		CE00CAE822411A24000058BC /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				CE00CAE922411A56000058BC /* RealmDataStorage.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		CE02D3CE222D22AF002286A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE6032AE223FBA9D009631AB /* DataStorage */,
 				CE02D3CF222D22DC002286A1 /* LoginAPI.swift */,
 				CEBB49B82231364200719843 /* RequestData.swift */,
 				CECDD633223A5AE300A5B397 /* Parser.swift */,
@@ -234,6 +297,18 @@
 			children = (
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		CE6032AE223FBA9D009631AB /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				CE00CAE822411A24000058BC /* Realm */,
+				CE00CADF2240DD98000058BC /* DataBase */,
+				CE00CADC2240D93D000058BC /* Files */,
+				CE00CAD72240D611000058BC /* Secured */,
+				CE6032AF223FBABC009631AB /* InfoDataStorage.swift */,
+			);
+			path = DataStorage;
 			sourceTree = "<group>";
 		};
 		CE6314B1221EAB5E0056DBED /* ViewContollerAnimations */ = {
@@ -417,20 +492,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6314AE221E9CB30056DBED /* Router.swift in Sources */,
+				CE00CADE2240D953000058BC /* FilesDataStorage.swift in Sources */,
 				CE8207B3220831E00043FC44 /* MainView.swift in Sources */,
+				CE00CAE12240DDCE000058BC /* DataStorage.swift in Sources */,
 				CECDD634223A5AE300A5B397 /* Parser.swift in Sources */,
 				CEC3DCB02220085100033BE3 /* NavigationAnimation.swift in Sources */,
 				CE8207B72209985D0043FC44 /* SettingsTableViewCell.swift in Sources */,
 				CE517757221460E500208B1B /* LikeButton.swift in Sources */,
 				CEDDEDA122379C2F0090D2D4 /* VKViewController.swift in Sources */,
+				CE00CAEA22411A56000058BC /* RealmDataStorage.swift in Sources */,
+				CE00CADB2240D82F000058BC /* KeychainPasswordItem.swift in Sources */,
 				CEC3DCAE221FF2DD00033BE3 /* NavigationDeligate.swift in Sources */,
 				CE6314B5221EB0F20056DBED /* PresentationDelegate.swift in Sources */,
 				CE167D1921F5EF4F004B52C2 /* LoginViewController.swift in Sources */,
 				CEE0E80C220445C400860758 /* MyGroupsTableViewController.swift in Sources */,
 				CEE0E81022044B9700860758 /* AllGroupsTableViewCell.swift in Sources */,
 				CEBB49B92231364200719843 /* RequestData.swift in Sources */,
+				CE6032B2223FBC94009631AB /* SecuredDataStorage.swift in Sources */,
 				CE3A29E1220C18EA00B2ECCF /* SettingsViewController.swift in Sources */,
 				CE167D0621F5EF24004B52C2 /* AppDelegate.swift in Sources */,
+				CE00CAE52240F8D1000058BC /* Model.xcdatamodeld in Sources */,
+				CE00CAE72240FB00000058BC /* CoreDataStorage.swift in Sources */,
 				CE3A29E7220C288500B2ECCF /* NewsTableViewController.swift in Sources */,
 				CE6314B3221EABA30056DBED /* AnimationControllers.swift in Sources */,
 				CE02D3D0222D22DC002286A1 /* LoginAPI.swift in Sources */,
@@ -444,6 +526,8 @@
 				CE045824221BE5A600CDF314 /* LoaderNew.swift in Sources */,
 				CE5177532212D60100208B1B /* NewTableViewCell.swift in Sources */,
 				CEDDEDA32237A5420090D2D4 /* LoginVCviaVK.swift in Sources */,
+				CE6032B0223FBABC009631AB /* InfoDataStorage.swift in Sources */,
+				CE00CAD92240D816000058BC /* KeychainConfiguration.swift in Sources */,
 				CEE0E81222045ABC00860758 /* MyFriendsTableViewController.swift in Sources */,
 				CEE0E81622045DA300860758 /* PhotosCollectionViewController.swift in Sources */,
 			);
@@ -714,6 +798,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CE00CAE32240F8D1000058BC /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CE00CAE42240F8D1000058BC /* Model.xcdatamodel */,
+			);
+			currentVersion = CE00CAE42240F8D1000058BC /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CE167CFA21F5EF24004B52C2 /* Project object */;
 }

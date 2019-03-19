@@ -15,6 +15,12 @@ class LoginVCviaVK: UIViewController {
     @IBOutlet private weak var loginButton:UIButton?
     @IBOutlet private weak var scrollView:UIScrollView?
 
+    let router = Router()
+
+    
+    @IBAction func hintsButtonAction() {
+        self.router.openHints()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

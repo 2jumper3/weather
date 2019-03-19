@@ -6,7 +6,8 @@ target 'WeatherApp' do
   use_frameworks!
 
 	
-pod 'Alamofire', '~> 5.0.0-beta2 '
+	pod 'Alamofire', '~> 5.0.0-beta2 '
+ 	pod 'RealmSwift'
 
   # Pods for WeatherApp
 
