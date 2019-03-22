@@ -13,51 +13,74 @@ import Alamofire
 protocol LoginAPIProtocol: class {
     func login(login: String, password: String, completion: @escaping (Error?) -> ())
     
-    func getWeather(completion: @escaping (Error?) -> ())
+    func getFriends(completion: @escaping (UserInfoMainResponse?, Error?) -> ())
 }
 
 class Login {
     
     private init () {}
     
-    static var shared: LoginAPIProtocol = URLSessionAPIManeger()
+    static var shared: LoginAPIProtocol = URLSessionAPIManager()
 
 }
 
-private class URLSessionAPIManeger: LoginAPIProtocol {
-    func login(login: String, password: String, completion: @escaping (Error?) -> ()) {
+private class URLSessionAPIManager: LoginAPIProtocol {
+    
+    var urlSession: URLSession?
+    
+    var showLogs = true
+    
+    init() {
+        let config = URLSessionConfiguration.default
+        self.urlSession = URLSession(configuration: config)
+    }
+    
+    func login(login: String, password: String, completion: @escaping  (Error?) -> ()) {
         completion(nil)
     }
-    func getWeather(completion: @escaping (Error?) -> ()) {
-        let requestData = RequestData.createRequestDataForGetWeather()
-        
+    
+    func getFriends(completion: @escaping  (UserInfoMainResponse?, Error?) -> ()) {
+        let requestData = RequestData.createRequestDataForGetFriends()
         self.execute(requestData: requestData) { (data: Data?, error: Error?) in
-            completion(error)
+            let response = Parser.parse(data: data)
+            completion(response, nil)
         }
     }
-
-    // MARK -
-    func execute(requestData: RequestData, completion: @escaping (Data?, Error?) -> ()) {
+    
+    // MARK: -
+    
+    func execute(requestData: RequestData, completion: @escaping  (Data?, Error?) -> ()) {
         
-        var urlComponents = URLComponents()
-        urlComponents.scheme = requestData.sheme
-        urlComponents.host = requestData.host
-        urlComponents.path = requestData.path
-        
-        var urlQueryItems: [URLQueryItem] = []
-        
-        for getParm in requestData.getParms.values {
-            
+        if self.showLogs {
+            print("execute \(String(describing: requestData.generateURL()))")
         }
-        urlComponents.queryItems = urlQueryItems
         
-//        if let url 
-//
-//        var request = URLRequest(url: urlComponents.url, cachePolicy: <#T##URLRequest.CachePolicy#>, timeoutInterval: <#T##TimeInterval#>)
-
+        guard let request = requestData.generateRequest() else {
+            completion(nil, nil)
+            return
+        }
+        
+        let dataTask = self.urlSession?.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if let httpResponse: HTTPURLResponse = response as? HTTPURLResponse {
+                let status = httpResponse.statusCode // 401
+            }
+            
+            if self.showLogs {
+                if let responseData = data {
+                    let dataString = String(data: responseData, encoding: .utf8)
+                }
+            }
+            
+            
+            OperationQueue.main.addOperation({
+                completion(data, error)
+            })
+            
+        })
+        dataTask?.resume()
     }
 }
-
 // Синглтон для хранения сессии
 class Session {
     
@@ -72,6 +95,10 @@ class Session {
 
 
 private class DefaultLoginAPIManager: LoginAPIProtocol {
+    func getFriends(completion: @escaping (UserInfoMainResponse?, Error?) -> ()) {
+        let requestData = RequestData.createRequestDataForGetFriends()
+    }
+    
     var loginCompletion: ((Error?) -> ())?
     var userName: String?
     

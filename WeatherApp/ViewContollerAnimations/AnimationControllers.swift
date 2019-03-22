@@ -1,11 +1,3 @@
-//
-//  AnimationControllers.swift
-//  WeatherApp
-//
-//  Created by Sergey on 21/02/2019.
-//  Copyright © 2019 Sergey. All rights reserved.
-//
-
 import UIKit
 
 let animationDuration: TimeInterval = 1
@@ -41,7 +33,7 @@ class CloseAnimationController: NSObject, UIViewControllerAnimatedTransitioning 
         } else if let navViewController = toVC as? UINavigationController,
             let logincViewController = navViewController.viewControllers.first as? LoginViewController,
             let hintsButton = logincViewController.hintButton {
-                hintsButtonFrame = hintsButton.frame
+            hintsButtonFrame = hintsButton.frame
         }
         
         let buttonCenter = CGRect(x: hintsButtonFrame.origin.x + hintsButtonFrame.size.width / 2,
@@ -68,7 +60,7 @@ class OpenAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     var isPresented: Bool = true
     
     init (isPresented: Bool) {
-       super.init()
+        super.init()
         self.isPresented = isPresented
     }
     
@@ -84,17 +76,17 @@ class OpenAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
         guard let toVC = transitionContext.viewController(forKey: .to) else {
             return
         }
-    
+        
         var hintsButtonFrame: CGRect = CGRect.zero
         
         
         if let loginViewController = fromVC as? LoginViewController, let hintsButton = loginViewController.hintButton {
             hintsButtonFrame = hintsButton.frame } else if let navViewController = fromVC as? UINavigationController,
-        let logincViewController = navViewController.viewControllers.first as? LoginViewController,
+            let logincViewController = navViewController.viewControllers.first as? LoginViewController,
             let hintsButton = logincViewController.hintButton {
                 hintsButtonFrame = hintsButton.frame
         }
-            
+        
         let buttonCenter = CGRect(x: hintsButtonFrame.origin.x + hintsButtonFrame.size.width / 2,
                                   y: hintsButtonFrame.origin.y + hintsButtonFrame.size.height / 2,
                                   width: 0, height: 0)
@@ -111,7 +103,7 @@ class OpenAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
                 
             } else {
                 fromVC.view.removeFromSuperview()
-            }            
+            }
             transitionContext.completeTransition(true)
         }
     }

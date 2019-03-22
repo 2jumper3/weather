@@ -11,10 +11,10 @@ import UIKit
 class HintsViewController: UIViewController {
     
     let router = Router()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(closeBySwipe))
         swipe.direction = .left
         self.view.addGestureRecognizer(swipe)

@@ -11,9 +11,9 @@ import UIKit
 class PresentationDelegate: NSObject, UIViewControllerTransitioningDelegate {
     let openAnimationController = OpenAnimationController(isPresented: true)
     let closeAnimationController = CloseAnimationController(isPresented: true)
-
     
-//    animator
+    
+    //    animator
     
     func animationController(forPresented  presented: UIViewController,
                              presenting: UIViewController,

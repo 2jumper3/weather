@@ -23,15 +23,10 @@ class FriendsVK: Decodable {
         friendID = try container.decode(Int.self, forKey: .friendID)
     }
 }
-//
-//class FriendsVKResponse: Decodable {
-//    var list = [FriendsVK]
-//}
-//
-////https://api.vk.com/method/users.get?user_id=210700286&v=5.52
+//https://api.vk.com/method/friends.get?order=name&fields=nickname&access_token=f2af025ca36f42d75d140048677e7d4185f0c1a1aea36c26084c7466131b36f3608391692d6922a5d6790&v=5.52
 
-class UserInfoResponse: Decodable {
-//{"response":[{"id":210700286,"first_name":"Lindsey","last_name":"Stirling"}]}
+class FriendsInfoResponse: Decodable {
+
     var id: Int = 0
     var first_name: String = ""
     var last_name: String = ""
@@ -55,7 +50,7 @@ class UserInfoResponse: Decodable {
 
 
 class UserInfoMainResponse: Decodable {
-    var response: [UserInfoResponse] = []
+    var response: [FriendsInfoResponse] = []
     
     init () {}
     
@@ -65,7 +60,32 @@ class UserInfoMainResponse: Decodable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        response = try container.decode([UserInfoResponse].self, forKey: .response)
+        response = try container.decode([FriendsInfoResponse].self, forKey: .response)
 }
+}
+
+class Parser {
+    
+    static func parse(data: Data?) -> UserInfoMainResponse? {
+        guard let data = data else {
+            return nil
+        }
+        
+        do {
+            let decoder = JSONDecoder()
+            let response: UserInfoMainResponse = try decoder.decode(UserInfoMainResponse.self, from: data)
+            return response
+        } catch {
+            print("JSONDecoder exception \(#file) \(#function) \(#line) \(error)")
+        }
+        
+        return nil
+        
+        // OLD
+        //        guard let json: [String : Any] = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String : Any] else {
+        //            return nil
+        //        }
+        //        return WeatherResponse.createFrom(dictionary: json)
+    }
 }
 

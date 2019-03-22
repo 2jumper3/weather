@@ -19,34 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    #if DEBUG
-    let savedResponse = UserInfoResponse()
-    savedResponse.cod = "200"
-    savedResponse.count = 1
-    savedResponse.message = 0.5
-    
-    let savedItem = UserInfoResponse()
-    savedItem.dtString = "15.03.2019"
-    savedItem.main.temp = 451
-    savedResponse.list.append(savedItem)
-    
-    DataStorage.shared.save(weatherResponse: savedResponse) {
-    DataStorage.shared.load(completion: { (responses: [WeatherResponse]) in
-    
-    let loadedResponse = responses.first
-    assert(nil != loadedResponse)
-    
-    assert(savedResponse.cod == loadedResponse?.cod)
-    assert(savedResponse.count == loadedResponse?.count)
-    assert(savedResponse.message == loadedResponse?.message)
-    
-    let item = loadedResponse?.list.first
-    assert(nil != item)
-    assert(savedItem.dtString == item?.dtString)
-    assert(savedItem.main.temp == item?.main.temp)
-    })
-    }
-    #endif
+
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

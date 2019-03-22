@@ -1,11 +1,3 @@
-//
-//  NavigationDeligate.swift
-//  WeatherApp
-//
-//  Created by Sergey on 22/02/2019.
-//  Copyright © 2019 Sergey. All rights reserved.
-//
-
 import UIKit
 
 class NavigationDeligate: NSObject, UINavigationControllerDelegate {
@@ -42,7 +34,7 @@ class internalNavigationController: UINavigationController, UINavigationControll
     }
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if operation == .push {
-            return PushAnimation.init(isPresented: true)
+            return PushAnimation(isPresented: true)
         } else if operation == .pop {
             return PopAnimation()
         }

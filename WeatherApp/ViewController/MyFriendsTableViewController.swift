@@ -47,6 +47,7 @@ class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate 
         addFriends()
         fillSections()
         reloadFriends()
+        
        
     }
     
@@ -57,7 +58,14 @@ class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate 
     
     func addFriends() {
 //        https://api.vk.com/method/friends.getOnline?v=5.52&access_token=2e827693156bf14eefc22514bb5cf567143d1fc6745a1e0e7c8a807dbbe53772f46d94185c0d1c3cc49d8
-    
+       Login.shared.getFriends { (response: UserInfoMainResponse?, error: Error?) in
+            guard let list = response?.response else  {
+                return
+            }
+            
+        }
+        
+        
     let allFriends = ["Елизавета", "Петр", "Иван", "Федор", "Сергей", "Николай", "Борис", "Иоан"]
     for name in allFriends {
     let friend = Friend()
