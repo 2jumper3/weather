@@ -13,7 +13,7 @@ import Alamofire
 protocol LoginAPIProtocol: class {
     func login(login: String, password: String, completion: @escaping (Error?) -> ())
     
-    func getFriends(completion: @escaping (UserInfoMainResponse?, Error?) -> ())
+    func getFriends(completion: @escaping (FriendsInfoMainResponse?, Error?) -> ())
 }
 
 class Login {
@@ -39,10 +39,10 @@ private class URLSessionAPIManager: LoginAPIProtocol {
         completion(nil)
     }
     
-    func getFriends(completion: @escaping  (UserInfoMainResponse?, Error?) -> ()) {
+    func getFriends(completion: @escaping  (FriendsInfoMainResponse?, Error?) -> ()) {
         let requestData = RequestData.createRequestDataForGetFriends()
         self.execute(requestData: requestData) { (data: Data?, error: Error?) in
-            let response = Parser.parse(data: data)
+            let response: FriendsInfoMainResponse? = Parser.parse(data: data)
             completion(response, nil)
         }
     }
@@ -95,15 +95,12 @@ class Session {
 
 
 private class DefaultLoginAPIManager: LoginAPIProtocol {
-    func getFriends(completion: @escaping (UserInfoMainResponse?, Error?) -> ()) {
+    func getFriends(completion: @escaping (FriendsInfoMainResponse?, Error?) -> ()) {
         let requestData = RequestData.createRequestDataForGetFriends()
     }
     
     var loginCompletion: ((Error?) -> ())?
     var userName: String?
-    
-    func getWeather(completion: @escaping (Error?) -> ()) {completion(nil)
-}
 
     
     func changeUserName(newUserName: String) {

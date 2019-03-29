@@ -40,40 +40,34 @@ class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate 
         super.viewDidLoad()
         
         self.tableView.tableFooterView = UIView()
-
-        
-
         assignbackground()
         addFriends()
         fillSections()
         reloadFriends()
-        
        
     }
     
-    
-    
-   
-        
-    
     func addFriends() {
-//        https://api.vk.com/method/friends.getOnline?v=5.52&access_token=2e827693156bf14eefc22514bb5cf567143d1fc6745a1e0e7c8a807dbbe53772f46d94185c0d1c3cc49d8
-       Login.shared.getFriends { (response: UserInfoMainResponse?, error: Error?) in
-            guard let list = response?.response else  {
-                return
-            }
+
+       Login.shared.getFriends { (response: FriendsInfoMainResponse?, error: Error?) in
+        
+        guard let list = response?.response else {
+            return
+        }
+        print("list response: \(list)")
+      
+        for item in list.items {
+            let friends = Friend(first_name: item.first_name, last_name: item.last_name)
+            self.friends.append(friends)
+            print ("friends \(friends.first_name)")
             
         }
-        
-        
-    let allFriends = ["Елизавета", "Петр", "Иван", "Федор", "Сергей", "Николай", "Борис", "Иоан"]
-    for name in allFriends {
-    let friend = Friend()
-    friend.name = name
+        OperationQueue.main.addOperation {
+            self.tableView!.reloadData()
+        }
+}
+       
     
-    self.friends.append(friend)
-    }
-    self.filter(query: "")
 }
     
     func fillSections() {
@@ -109,7 +103,7 @@ class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate 
         self.friendsSeparators.removeAll()
         
         for friend in self.friends {
-            guard let firstLetter = friend.name?.first else {
+            guard let firstLetter = friend.first_name?.first else {
                 continue
             }
             
@@ -181,7 +175,7 @@ class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate 
         //ячейка от таблицы
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyFriendsTableViewCell", for: indexPath) as! MyFriendsTableViewCell
 //        сам друг
-        let friend = self.friendsFilter[indexPath.row]
+        let friend = self.friendsFilter[indexPath.row] //        let friend = self.friendsfilter[indexPath.row]
         cell.setFriend(friend: friend)
         
         let sectionName: String = self.separators[indexPath.section]
@@ -203,7 +197,7 @@ extension MyFriendsTableViewController {
         
         for one in self.friends {
             
-            guard let name = one.name else {
+            guard let name = one.first_name else {
                 continue
             }
             

@@ -12,5 +12,11 @@ class Group {
     var name: String?
 }
 class Friend {
-    var name: String?
+    var first_name: String?
+    var last_name: String?
+    
+    init(first_name: String, last_name: String) {
+        self.first_name = first_name
+        self.last_name = last_name
+    }
 }

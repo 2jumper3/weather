@@ -12,7 +12,7 @@ class MyFriendsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var friendName: UILabel?
     func setFriend(friend: Friend) {
-        self.friendName?.text = friend.name
+        self.friendName?.text = "\(friend.first_name) \(friend.last_name)"
     }
 
 

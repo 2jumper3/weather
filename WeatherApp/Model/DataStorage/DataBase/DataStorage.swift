@@ -2,27 +2,27 @@
 ////  DataStorage.swift
 ////  WeatherApp
 ////
-////  Created by Stanislav Ivanov on 15/03/2019.
-////  Copyright © 2019 Stanislav Ivanov. All rights reserved.
+////  Created by Sergey Udalov on 15/03/2019.
+////  Copyright © 2019 Sergey Udalov. All rights reserved.
 ////
 //
 //
-//import Foundation
-//
-//
-//
-//// SOLID
-//// O - open\close
-//// I - interface
-//
-//
-//// VIPER, Entity
-//
-//
-//protocol IDataStorage {
-//    func save(userInfoMainResponse: UserInfoMainResponse, completion: @escaping () -> () )
-//    func load(completion: @escaping ([UserInfoMainResponse]) -> () )
-//}
+import Foundation
+
+
+
+// SOLID
+// O - open\close
+// I - interface
+
+
+// VIPER, Entity
+
+
+protocol IDataStorage {
+    func save(friendsInfoMainResponse: FriendsInfoMainResponse, completion: @escaping () -> () )
+    func load(completion: @escaping ([FriendsInfoMainResponse]) -> () )
+}
 //
 //
 //class DataStorage {

@@ -33,7 +33,6 @@ class FriendsInfoResponse: Decodable {
     
     init () {}
 
-    
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case first_name = "first_name"
@@ -45,12 +44,27 @@ class FriendsInfoResponse: Decodable {
         first_name = try container.decode(String.self, forKey: .first_name)
         last_name = try container.decode(String.self, forKey: .last_name)
     }
+}
+
+class FriendsInfoItemsResponse: Decodable {
+    
+    var items: [FriendsInfoResponse] = []
+    
+    init () {}
+    
+    enum CodingKeys: String, CodingKey {
+        case items = "items"
     }
     
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        items = try container.decode([FriendsInfoResponse].self, forKey: .items)
+    }
+}
 
-
-class UserInfoMainResponse: Decodable {
-    var response: [FriendsInfoResponse] = []
+class FriendsInfoMainResponse: Decodable {
+    
+    var response: FriendsInfoItemsResponse = FriendsInfoItemsResponse()
     
     init () {}
     
@@ -60,32 +74,24 @@ class UserInfoMainResponse: Decodable {
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        response = try container.decode([FriendsInfoResponse].self, forKey: .response)
-}
+        response = try container.decode(FriendsInfoItemsResponse.self, forKey: .response)
+    }
 }
 
 class Parser {
     
-    static func parse(data: Data?) -> UserInfoMainResponse? {
+    static func parse(data: Data?) -> FriendsInfoMainResponse? {
         guard let data = data else {
             return nil
         }
-        
         do {
             let decoder = JSONDecoder()
-            let response: UserInfoMainResponse = try decoder.decode(UserInfoMainResponse.self, from: data)
+            let response: FriendsInfoMainResponse = try decoder.decode(FriendsInfoMainResponse.self, from: data)
             return response
         } catch {
             print("JSONDecoder exception \(#file) \(#function) \(#line) \(error)")
         }
-        
         return nil
-        
-        // OLD
-        //        guard let json: [String : Any] = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String : Any] else {
-        //            return nil
-        //        }
-        //        return WeatherResponse.createFrom(dictionary: json)
     }
 }
 

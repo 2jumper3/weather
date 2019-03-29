@@ -63,15 +63,16 @@ extension RequestData {
         
         requestData.sheme = "https"
         requestData.host = "api.vk.com"
-        requestData.path = "method/friends.get"
+        requestData.path = "/method/friends.get"
         
         
         var getParms: [String:String] = [:]
-        getParms["ACCESS_TOKEN"] = Session.shared.tokenID
+        getParms["access_token"] = Session.shared.tokenID
         getParms["v"] = "5.92"
         getParms["order"] = "name"
         getParms["fields"] = "nickname"
         
+        requestData.getParms = getParms
         
         return requestData
     }
@@ -86,8 +87,10 @@ extension RequestData {
         
         
         var getParms: [String:String] = [:]
-        getParms["ACCESS_TOKEN"] = Session.shared.tokenID
+        getParms["access_token"] = Session.shared.tokenID
         getParms["v"] = "5.92"
+        requestData.getParms = getParms
+
         
         return requestData
     }

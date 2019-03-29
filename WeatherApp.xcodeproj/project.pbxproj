@@ -15,6 +15,7 @@
 		CE00CAE52240F8D1000058BC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE00CAE32240F8D1000058BC /* Model.xcdatamodeld */; };
 		CE00CAE72240FB00000058BC /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00CAE62240FB00000058BC /* CoreDataStorage.swift */; };
 		CE00CAEA22411A56000058BC /* RealmDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE00CAE922411A56000058BC /* RealmDataStorage.swift */; };
+		CE02A6B72248F5B200AD1E1F /* VKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02A6B62248F5B200AD1E1F /* VKManager.swift */; };
 		CE02D3D0222D22DC002286A1 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE02D3CF222D22DC002286A1 /* LoginAPI.swift */; };
 		CE045824221BE5A600CDF314 /* LoaderNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE045823221BE5A600CDF314 /* LoaderNew.swift */; };
 		CE167D0621F5EF24004B52C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE167D0521F5EF24004B52C2 /* AppDelegate.swift */; };
@@ -75,6 +76,7 @@
 		CE00CAE42240F8D1000058BC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CE00CAE62240FB00000058BC /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		CE00CAE922411A56000058BC /* RealmDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDataStorage.swift; sourceTree = "<group>"; };
+		CE02A6B62248F5B200AD1E1F /* VKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKManager.swift; sourceTree = "<group>"; };
 		CE02D3CF222D22DC002286A1 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		CE045823221BE5A600CDF314 /* LoaderNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderNew.swift; sourceTree = "<group>"; };
 		CE167D0221F5EF24004B52C2 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 			children = (
 				CE6032AE223FBA9D009631AB /* DataStorage */,
 				CE02D3CF222D22DC002286A1 /* LoginAPI.swift */,
+				CE02A6B62248F5B200AD1E1F /* VKManager.swift */,
 				CEBB49B82231364200719843 /* RequestData.swift */,
 				CECDD633223A5AE300A5B397 /* Parser.swift */,
 			);
@@ -517,6 +520,7 @@
 				CE167D0621F5EF24004B52C2 /* AppDelegate.swift in Sources */,
 				CE00CAE52240F8D1000058BC /* Model.xcdatamodeld in Sources */,
 				CE00CAE72240FB00000058BC /* CoreDataStorage.swift in Sources */,
+				CE02A6B72248F5B200AD1E1F /* VKManager.swift in Sources */,
 				CE3A29E7220C288500B2ECCF /* NewsTableViewController.swift in Sources */,
 				CE6314B3221EABA30056DBED /* AnimationControllers.swift in Sources */,
 				CE02D3D0222D22DC002286A1 /* LoginAPI.swift in Sources */,
