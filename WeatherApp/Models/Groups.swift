@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 class Group {
     var name: String?
@@ -20,3 +21,14 @@ class Friend {
         self.last_name = last_name
     }
 }
+
+class FriendObject: Object {
+    @objc dynamic var first_name: String = ""
+    
+    @objc dynamic var last_name: Bool = false
+    
+    override static func primaryKey() -> String? {
+        return "first_name"
+    }
+}
+

@@ -13,49 +13,29 @@ class FriendsInfoResponseObject: Object {
       @objc dynamic var id: Int = 0
       @objc dynamic var first_name: String = ""
       @objc dynamic var last_name: String = ""
-}
-
-class 
 
 
-class FriendsInfoItemsResponseObject: Object {
-
-    let response = List<UserInfoResponseObject>()
     
-    static func createFrom(userInfoMainResponse: FriendsInfoMainResponse) -> UserInfoMainResponseObject {
-        let object = UserInfoMainResponseObject()
+    static func createFrom(friendsInfoResponse: FriendsInfoResponse) -> FriendsInfoResponseObject {
+        let object = FriendsInfoResponseObject()
         
-        object.cod =    weatherResponse.cod
-        object.message = weatherResponse.message
-        object.count = weatherResponse.count
+        object.id           = friendsInfoResponse.id
+        object.first_name   = friendsInfoResponse.first_name
+        object.last_name    = friendsInfoResponse.last_name
         
-        for item in weatherResponse.list {
-            let itemObject = WeatherItemResponseObject()
-            itemObject.dtString = item.dtString
-            itemObject.temp = item.main.temp
-            
-            object.list.append(itemObject)
-        }
         
         return object
     }
     
-    func create() -> WeatherResponse {
-        let weatherResponse = WeatherResponse()
+    func create() -> FriendsInfoResponse {
+        let friendsResponse = FriendsInfoResponse()
         
-        weatherResponse.cod = self.cod
-        weatherResponse.message = self.message
-        weatherResponse.count = self.count
+        friendsResponse.id           = self.id
+        friendsResponse.last_name    = self.last_name
+        friendsResponse.first_name   = self.first_name
         
-        for itemObject in self.list {
-            let item = WeatherItemResponse()
-            item.dtString = itemObject.dtString
-            item.main.temp = itemObject.temp
-            
-            weatherResponse.list.append(item)
-        }
         
-        return weatherResponse
+        return friendsResponse
     }
 }
 
@@ -65,31 +45,51 @@ class RealmDataStorage: IDataStorage {
     
     var realm: Realm?
     
+    
+
     init() {
         self.dispathQueue.sync {
-            do {
-                self.realm = try Realm()
-            } catch {
-                print("RealmDataStorage init exception \(#file) \(#function) \(#line) \(error)")
-            }
+            
+//            let config = Realm.Configuration (
+//                // Set the new schema version. This must be greater than the previously used
+//                // version (if you've never set a schema version before, the version is 0).
+//                schemaVersion: 1,
+//                migrationBlock: { migration, oldSchemaVersion in
+//                    if oldSchemaVersion < 1 {
+//                        migration.enumerateObjects(ofType: FriendsInfoResponseObject.className()) { (oldItem, newItem) in
+//                            newItem?["first_name"] = false
+//                        }
+//                    }
+//            })
+//            
+//            Realm.Configuration.defaultConfiguration = config
+            
+//            do {
+//                self.realm = try Realm()
+//                realm?.beginWrite()
+//                try realm?.commitWrite()
+//            } catch {
+//                print("RealmDataStorage init exception \(#file) \(#function) \(#line) \(error)")
+//            }
         }
     }
     
-    func save(weatherResponse: WeatherResponse, completion: @escaping () -> () ) {
+    func save(friendsInfoResponse: FriendsInfoResponse, completion: @escaping () -> () ) {
         
         self.dispathQueue.sync {
-            guard let realm = self.realm else {
+            guard let realm = try? Realm() else {
+//            guard let realm = self.realm else {
                 completion()
                 return
             }
             
-            let object = WeatherResponseObject.createFrom(weatherResponse: weatherResponse)
+            let object = FriendsInfoResponseObject.createFrom(friendsInfoResponse: friendsInfoResponse)
             do {
                 try realm.write {
-                    realm.add(object)
+                    realm.add(object, update: true)
                 }
             } catch {
-                print("save WeatherResponse exception \(#file) \(#function) \(#line) \(error)")
+                print("save FriendsInfoResponse exception \(#file) \(#function) \(#line) \(error)")
             }
             
             DispatchQueue.main.async {
@@ -98,16 +98,16 @@ class RealmDataStorage: IDataStorage {
         }
     }
     
-    func load(completion: @escaping ([WeatherResponse]) -> () ) {
+    func load(completion: @escaping ([FriendsInfoResponse]) -> () ) {
         self.dispathQueue.sync {
             guard let realm = self.realm else {
                 completion([])
                 return
             }
             
-            var responses: [WeatherResponse] = []
+            var responses: [FriendsInfoResponse] = []
             
-            let objects = realm.objects(WeatherResponseObject.self)
+            let objects = realm.objects(FriendsInfoResponseObject.self)
             for object in objects {
                 let response = object.create()
                 responses.append(response)
@@ -115,6 +115,34 @@ class RealmDataStorage: IDataStorage {
             
             DispatchQueue.main.async {
                 completion(responses)
+            }
+        }
+    }
+    
+    func delete(friendsInfoResponse: [FriendsInfoResponse], completion: @escaping () -> () ) {
+        self.dispathQueue.sync {
+            guard let realm = try? Realm() else {
+                completion()
+                return
+            }
+            
+            var objects: [FriendsInfoResponseObject] = []
+            for response in friendsInfoResponse {
+                let object = FriendsInfoResponseObject.createFrom(friendsInfoResponse: response)
+                objects.append(object)
+            }
+            
+            do {
+                try realm.write {
+                    realm.delete(objects)
+                }
+            } catch {
+                print("save FriendsInfoResponse exception \(#file) \(#function) \(#line) \(error)")
+            }
+            
+            
+            DispatchQueue.main.async {
+                completion()
             }
         }
     }

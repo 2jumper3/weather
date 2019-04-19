@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 import Alamofire
+import RealmSwift
 
 class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate {
     
@@ -54,7 +55,6 @@ class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate 
         guard let list = response?.response else {
             return
         }
-        print("list response: \(list)")
       
         for item in list.items {
             let friends = Friend(first_name: item.first_name, last_name: item.last_name)
@@ -187,6 +187,8 @@ class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate 
         return cell
     }
     
+
+    
     
     
     }
@@ -223,3 +225,17 @@ extension MyFriendsTableViewController: UISearchBarDelegate {
         self.filter(query: searchText)
     }
 }
+
+//extension MyFriendsTableViewController {
+//    @IBAction func addCity() {
+//        var realm = try? Realm()
+//        try? realm?.write {
+//            let friend = FriendObject()
+//            friend.first_name = realm?.add()
+//            friend.last_name  =
+//            realm?.add(friend, update: true)
+//        }
+//    }
+//    
+//}
+

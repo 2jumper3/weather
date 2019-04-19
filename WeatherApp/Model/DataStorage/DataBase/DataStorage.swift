@@ -20,8 +20,8 @@ import Foundation
 
 
 protocol IDataStorage {
-    func save(friendsInfoMainResponse: FriendsInfoMainResponse, completion: @escaping () -> () )
-    func load(completion: @escaping ([FriendsInfoMainResponse]) -> () )
+    func save(friendsInfoResponse: FriendsInfoResponse, completion: @escaping () -> () )
+    func load(completion: @escaping ([FriendsInfoResponse]) -> () )
 }
 //
 //

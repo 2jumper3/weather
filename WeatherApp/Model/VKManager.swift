@@ -17,36 +17,36 @@ class VKManager {
     func removeGroup() {
         // send notification
     }
-    
-    
-    
-    func reloadWeather(date: Date, completionCache: @escaping (WeatherDay) -> (), completionUpdated: @escaping (WeatherDay) -> () ) {
-        
-        // Запрос к серверу -> запись в БД
-        OperationQueue.main.addOperation {
-            completionUpdated( WeatherDay() )
-        }
-        
-        
-        
-    }
-    
-    func getWeather(date: Date, completionCache: @escaping (WeatherDay) -> (), completionUpdated: @escaping (WeatherDay) -> () ) {
-        
-        // Запрос БД
-        OperationQueue.main.addOperation {
-            completionCache( WeatherDay() )
-        }
-        
-        //self.reloadWeather(date: date, completionCache: <#T##(WeatherDay) -> ()#>, completionUpdated: <#T##(WeatherDay) -> ()#>)
-        
-        //
-        //        // Запрос к серверу -> запись в БД
-        //        OperationQueue.main.addOperation {
-        //            completionUpdated( WeatherDay() )
-        //        }
-        //
-        //
-        
-    }
 }
+    
+    
+//    func reloadWeather(date: Date, completionCache: @escaping (WeatherDay) -> (), completionUpdated: @escaping (WeatherDay) -> () ) {
+//
+//        // Запрос к серверу -> запись в БД
+//        OperationQueue.main.addOperation {
+//            completionUpdated( WeatherDay() )
+//        }
+//
+//
+//
+//    }
+    
+//    func getWeather(date: Date, completionCache: @escaping (WeatherDay) -> (), completionUpdated: @escaping (WeatherDay) -> () ) {
+//
+//        // Запрос БД
+//        OperationQueue.main.addOperation {
+//            completionCache( WeatherDay() )
+//        }
+//
+//        //self.reloadWeather(date: date, completionCache: <#T##(WeatherDay) -> ()#>, completionUpdated: <#T##(WeatherDay) -> ()#>)
+//
+//        //
+//        //        // Запрос к серверу -> запись в БД
+//        //        OperationQueue.main.addOperation {
+//        //            completionUpdated( WeatherDay() )
+//        //        }
+//        //
+//        //
+//
+//    }
+//}

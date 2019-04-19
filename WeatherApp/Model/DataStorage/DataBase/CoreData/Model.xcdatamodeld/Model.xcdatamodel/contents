@@ -1,21 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="FriendsInfoResponseEntity">
-    <entity name="FriendsInfoItemsResponseEntity" representedClassName="FriendsInfoItemsResponseEntity" syncable="YES" codeGenerationType="class">
-        <relationship name="relationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FriendsInfoMainResponseEntity" inverseName="response" inverseEntity="FriendsInfoMainResponseEntity" syncable="YES"/>
-        <relationship name="response" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FriendsInfoResponseEntity" inverseName="item" inverseEntity="FriendsInfoResponseEntity" syncable="YES"/>
-    </entity>
-    <entity name="FriendsInfoMainResponseEntity" representedClassName="FriendsInfoMainResponseEntity" syncable="YES" codeGenerationType="class">
-        <relationship name="response" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FriendsInfoItemsResponseEntity" inverseName="relationship" inverseEntity="FriendsInfoItemsResponseEntity" syncable="YES"/>
-    </entity>
     <entity name="FriendsInfoResponseEntity" representedClassName="FriendsInfoResponseEntity" syncable="YES" codeGenerationType="class">
         <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FriendsInfoItemsResponseEntity" inverseName="response" inverseEntity="FriendsInfoItemsResponseEntity" syncable="YES"/>
     </entity>
     <elements>
-        <element name="FriendsInfoItemsResponseEntity" positionX="83.296875" positionY="158.86328125" width="128" height="75"/>
-        <element name="FriendsInfoMainResponseEntity" positionX="300.5" positionY="160.0234375" width="128" height="60"/>
-        <element name="FriendsInfoResponseEntity" positionX="-154.80859375" positionY="129.09375" width="128" height="105"/>
+        <element name="FriendsInfoResponseEntity" positionX="-154.80859375" positionY="129.09375" width="128" height="90"/>
     </elements>
 </model>
