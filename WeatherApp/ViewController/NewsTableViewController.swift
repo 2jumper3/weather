@@ -12,6 +12,34 @@ class NewsTableViewController: UITableViewController {
     
     @IBOutlet private weak var sessionInfo: UILabel?
     
+    private var news: [News]  = []
+
+    
+    func addNews() {
+        
+//        Login.shared.getFriends { (response: FriendsInfoMainResponse?, error: Error?) in
+//
+        Login.shared.getNews { (response: NewsFeedMainResponse?, error: Error?) in
+            guard let list = response?.response else {
+                return
+            }
+            
+            
+            for item in list.items {
+                let news = News(text: item.text, photo: )
+                self.friends.append(friends)
+                print ("friends \(friends.first_name)")
+                
+            }
+            OperationQueue.main.addOperation {
+                self.tableView!.reloadData()
+            }
+            
+        }
+
+        
+        
+    }
     var news = ["Favorites", "Moscow News", "In Your Region", "In Country", "In World"]
 
     var newsArray = [

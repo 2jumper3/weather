@@ -14,6 +14,8 @@ protocol LoginAPIProtocol: class {
     func login(login: String, password: String, completion: @escaping (Error?) -> ())
     
     func getFriends(completion: @escaping (FriendsInfoMainResponse?, Error?) -> ())
+    
+    func getNews(completion: @escaping (NewsFeedMainResponse?, Error?) -> ())
 }
 
 class Login {
@@ -42,10 +44,19 @@ private class URLSessionAPIManager: LoginAPIProtocol {
     func getFriends(completion: @escaping  (FriendsInfoMainResponse?, Error?) -> ()) {
         let requestData = RequestData.createRequestDataForGetFriends()
         self.execute(requestData: requestData) { (data: Data?, error: Error?) in
-            let response: FriendsInfoMainResponse? = Parser.parse(data: data)
+            let response: FriendsInfoMainResponse? = Parser.parseFriends(data: data)
             completion(response, nil)
         }
     }
+    
+    func getNews(completion: @escaping (NewsFeedMainResponse?, Error?) -> ()) {
+        let requestData = RequestData.createRequestDataForGetNews()
+        self.execute(requestData: requestData) { (data:Data?, error: Error?) in
+            let resoinse: NewsFeedMainResponse? = Parser.parseNews(data: data)
+            completion(resoinse, nil)
+        }
+    }
+
     
     // MARK: -
     
@@ -97,6 +108,9 @@ class Session {
 private class DefaultLoginAPIManager: LoginAPIProtocol {
     func getFriends(completion: @escaping (FriendsInfoMainResponse?, Error?) -> ()) {
         let requestData = RequestData.createRequestDataForGetFriends()
+    }
+    func getNews(completion: @escaping (NewsFeedMainResponse?, Error?) -> ()) {
+        let reqestData = RequestData.createRequestDataForGetNews()
     }
     
     var loginCompletion: ((Error?) -> ())?

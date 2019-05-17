@@ -65,6 +65,7 @@ class MyFriendsTableViewController: UITableViewController, WKNavigationDelegate 
         OperationQueue.main.addOperation {
             self.tableView!.reloadData()
         }
+        
 }
        
     

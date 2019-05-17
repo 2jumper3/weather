@@ -83,7 +83,7 @@ extension RequestData {
         
         requestData.sheme = "https"
         requestData.host = "api.vk.com"
-        requestData.path = "method/users.get"
+        requestData.path = "/method/users.get"
         
         
         var getParms: [String:String] = [:]
@@ -96,5 +96,24 @@ extension RequestData {
     }
 }
 
-
+extension RequestData {
+//https://api.vk.com/method/newsfeed.get?count=2&filter=post&v=5.92&access_token=e1ac3ee28f34d4ac9ab99d8e947525ec386c34d1cfc9f4056d7be8b2ffa1659d8a565651ed2523433e3d7
+    
+    static func createRequestDataForGetNews() -> RequestData {
+        let requestData = RequestData()
+        
+        requestData.sheme = "https"
+        requestData.host = "api.vk.com"
+        requestData.path = "/method/newsfeed.get"
+        
+        var getParms: [String:String] = [:]
+        getParms["access_token"] = Session.shared.tokenID
+        getParms["filter"] = "post"
+        getParms["count"] = "50"
+        
+        requestData.getParms = getParms
+        
+        return requestData
+    }
+}
 

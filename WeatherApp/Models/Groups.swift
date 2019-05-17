@@ -22,6 +22,17 @@ class Friend {
     }
 }
 
+class News {
+    var text: String
+    var photo: UIImage
+    
+    init (text: String, photo: UIImage) {
+        self.text = text
+        self.photo = photo
+        
+    }
+}
+
 class FriendObject: Object {
     @objc dynamic var first_name: String = ""
     
